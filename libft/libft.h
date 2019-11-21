@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/19 17:23:28 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/21 01:27:31 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,8 @@ void			    ft_put_unsigned_nbr(unsigned int n);
 char                *ft_trans_to_x(uintmax_t n);
 char                *ft_trans_to_X(uintmax_t n);
 char				*ft_ptr(void *ptr);
+size_t				ft_strlen(const char *str);
+char    			*ft_strnew_with_zero(int size);
+char    			*ft_strnew_with_space(int size);
 
 #endif
