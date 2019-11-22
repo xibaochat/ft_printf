@@ -27,7 +27,7 @@ void baby_printf(char *str, ...)
 			else if (str[j] == 'u')
 				ft_put_unsigned_nbr(va_arg(p_list, unsigned int));
 			else if (str[j] == 'x')
-				ft_putstr(ft_trans_to_x(va_arg(p_list, int)));
+				ft_putstr(ftj_trans_to_x(va_arg(p_list, int)));
 			else if (str[j] == 'X')
 				ft_putstr(ft_trans_to_X((va_arg(p_list, int))));
 			else if (str[j] == 'p')

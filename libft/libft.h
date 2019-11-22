@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/21 22:23:55 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/22 14:32:49 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,18 @@ char *ft_apply_flag_to_nb(t_flag my_flags, int v_lens, char *value);
 char *ft_apply_flag_to_char(t_flag my_flags, char *value);
 char *ft_apply_precision_on_str(t_flag my_flags, char *value);
 void ncopy_at_the_begining(unsigned int n, char *value, char **new_value);
-
+char    *ft_apply_flag_to_adress(t_flag my_flags, char *value, int v_lens);
 // TESTS
 void test_str_width(void);
 void test_str_precision(void);
 void test_str_precision_with_width(void);
+
 void test_nb_width(void);
 void test_nb_precision(void);
 void test_nb_precision_with_width(void);
+
+void test_ptr_width(void);
+void test_ptr_precision(void);
+void test_ptr_precision_with_width(void);
 
 #endif
