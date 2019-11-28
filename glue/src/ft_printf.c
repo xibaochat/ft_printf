@@ -6,13 +6,13 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:40 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/28 18:00:17 by dh4rm4           ###   ########.fr       */
+/*   Updated: 2019/11/28 18:42:46 by dh4rm4           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int do_job(va_list *ap, char *format)
+int printf_core(va_list *ap, char *format)
 {
 	int	i;
 	int nb_output;
@@ -43,5 +43,5 @@ int ft_printf(char *format, ...)
 	if (!format)
 		return (0);
 	va_start(ap, format);
-	return (do_job(&ap, format));
+	return (printf_core(&ap, format));
 }

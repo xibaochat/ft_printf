@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 17:36:57 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/28 18:16:30 by dh4rm4           ###   ########.fr       */
+/*   Updated: 2019/11/28 18:40:30 by dh4rm4           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int do_conversion(va_list *ap, char *format, int i)
 	char conversion_char;
 	char *value;
 
+	//replace_stars(ap, &format, i);
 	conversion_char = get_conversion_char(format, i);
 	value = get_arg_as_str(ap, conversion_char);
 
