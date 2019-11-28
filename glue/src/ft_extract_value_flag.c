@@ -6,13 +6,13 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 19:53:34 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/21 22:14:03 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/28 18:14:18 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_get_flag_value(char *str, int *i)
+static int ft_get_flag_value(char *str, int *i)
 {
 	int s;
 
@@ -25,7 +25,7 @@ int ft_get_flag_value(char *str, int *i)
 	return (s);
 }
 
-void ft_init_sign(t_flag *my_flags, char *format, int *i)
+static void ft_init_sign(t_flag *my_flags, char *format, int *i)
 {
 	while (format[*i] && format[*i] == '-')
 	{
@@ -36,7 +36,7 @@ void ft_init_sign(t_flag *my_flags, char *format, int *i)
 		(*my_flags).is_signed = 0;
 }
 
-void ft_init_precision(t_flag *my_flags, char *format, int *i)
+static void ft_init_precision(t_flag *my_flags, char *format, int *i)
 {
 	if (format[*i] == '.')
 	{

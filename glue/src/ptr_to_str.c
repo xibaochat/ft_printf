@@ -3,7 +3,7 @@
 #include <stdint.h>
 #include "libft.h"
 
-char	*ft_ptr(void *ptr)
+char	*ptr_to_str(void *ptr)
 {
 	uintmax_t	p;
 
