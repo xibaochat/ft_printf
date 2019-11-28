@@ -6,7 +6,7 @@
 #    By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/28 15:14:56 by xinwang           #+#    #+#              #
-#    Updated: 2019/11/28 15:30:41 by xinwang          ###   ########.fr        #
+#    Updated: 2019/11/28 16:36:00 by dh4rm4           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,7 +14,8 @@ NAME = ft_printf
 
 MAIN_FILE = main.c
 
-SRCS_NAME = ${MAIN_FILE} ft_printf.c ft_putchar.c
+SRCS_NAME = ${MAIN_FILE} ft_printf.c ft_putchar.c is_conversion.c is_conversion_char.c \
+	nb_char_to_skip.c
 
 SRCS_PATH = ./src/
 
@@ -28,3 +29,5 @@ all:
 
 fclean:
 	rm -f $(NAME)
+
+re: fclean all

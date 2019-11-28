@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/28 15:19:23 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/28 16:33:34 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,23 @@ typedef struct s_flaf
 	int			have_precision;
 }               t_flag;
 
+int					ft_printf(char *format, ...);
 void				ft_putchar(char c);
+int					is_conversion(char *format, int *i_format);
+void skip_conversion_chars(char *format, int *i);
+int is_conversion_char(char c);
+
+
+
+
+
+
+
+
+
+
+
+
 void				ft_putstr(char *s);
 void				ft_putnbr(int n);
 size_t				ft_strlen(const char *str);

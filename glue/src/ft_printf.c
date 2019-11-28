@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:40 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/28 15:30:09 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/28 16:36:38 by dh4rm4           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int do_job(va_list *ap, char *format)
 	i = 0;
 	while (format[i])
 	{
-		if (is_conversion(format, i))
+		if (format[i] == '%' && is_conversion(format, &i))
 		{
-			;
 //			nb_output = do_conversion(format, i);
-//			i += nb_char_to_skip(format, i);
+			skip_conversion_chars(format, &i);
+			ft_putchar('X');
 		}
 		else
 		{

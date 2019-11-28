@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   nb_char_to_skip.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/28 15:14:40 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/28 16:37:56 by xinwang          ###   ########.fr       */
+/*   Created: 2019/11/28 16:26:51 by xinwang           #+#    #+#             */
+/*   Updated: 2019/11/28 16:33:29 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int main(void)
+void skip_conversion_chars(char *format, int *i)
 {
-	ft_printf("bebe chat %.10-59s is cute\n", 420, 42);
-	ft_printf("bebe chat %s is cute\n", 420, 42);
-	ft_printf("bebe chat %.10s is cute\n", 420, 42);
-	ft_printf("bebe chat %-59s is cute\n", 420, 42);
-	ft_printf("bebe chat %-59.s is cute\n", 420, 42);
-	return (0);
+    while (!is_conversion_char(format[*i]))
+		++(*i);
+	++(*i);
 }
