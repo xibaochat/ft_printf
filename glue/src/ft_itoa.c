@@ -6,13 +6,13 @@
 /*   By: xinwang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 11:49:03 by xinwang           #+#    #+#             */
-/*   Updated: 2019/10/18 11:49:06 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/29 16:47:40 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			get_size(int n)
+int			get_size_int(int n)
 {
 	int				size;
 
@@ -46,7 +46,7 @@ char				*ft_itoa(int n)
 
 	i = 0;
 	res = n;
-	if (!(str = (char *)malloc(get_size(n) + 1)))
+	if (!(str = (char *)malloc(get_size_int(n) + 1)))
 		return (NULL);
 	if (n < 0)
 	{

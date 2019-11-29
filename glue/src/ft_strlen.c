@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 18:28:29 by xinwang           #+#    #+#             */
-/*   Updated: 2019/10/18 04:21:01 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/29 17:43:53 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t		ft_strlen(const char *str)
 
 	i = -1;
 	lens = 0;
+	if (!str)
+		return (0);
 	while (str[++i])
 		lens++;
 	return (lens);
