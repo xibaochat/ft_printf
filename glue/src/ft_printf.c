@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:40 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/29 19:12:51 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/30 01:04:15 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int printf_core(va_list *ap, char *format)
 {
 	int	i;
 	int nb_output;
+	char *new;
 
 	i = 0;
 	nb_output = 0;
@@ -30,9 +31,10 @@ int printf_core(va_list *ap, char *format)
 	{
 		if (is_conversion(format, &i))
 		{
-			format = replace_star(ap, format);
-			if (valid_conversion(format, &i))
+			if (valide_star_nb_combi(format, i) &&
+				!has_invalide_char_in_flag(format, i))
 			{
+				format = manage_star(ap, format, i);
 				nb_output += do_conversion(ap, format, i);
 				skip_conversion_chars(format, &i);
 			}

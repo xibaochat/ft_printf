@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/29 18:57:21 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/30 00:17:01 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,11 @@ void ncopy_at_the_begining(unsigned int n, char *value, char **new_value);
 char    *ft_apply_flag_to_adress(t_flag my_flags, char *value, int v_lens);
 int         get_size_int(int n);
 char    *ft_strnew(int size);
-char *replace_star(va_list *ap, char *format);
+char *replace_star(va_list *ap, char *format, int i);
 int valid_conversion(char *format, int *i_format);
-
+char *manage_star(va_list *ap, char *format, int i);
+int has_invalide_char_in_flag(char *format, int i);
+int valide_star_nb_combi(char *format, int i);
 
 
 

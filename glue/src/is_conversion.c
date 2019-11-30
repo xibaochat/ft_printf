@@ -6,51 +6,88 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 16:03:30 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/29 19:11:00 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/30 01:05:40 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int invalid_flags(char *format, int *i)
+static int is_allowed_char_in_flag(char c)
 {
-	/*
-	  MUST CHECK THE VALIDITY OF THE FLAGS
-	*/
-	while (format[*i] && format[*i] == '*')
-		(*i)++;
-	if (*i > 1)
-		return (1);
-	while (!is_conversion_char(format[*i]) ||
-		   format[*i] == '.' ||
-		   format[*i] == '-')
-		   ++(*i);
-	return (0);
+	return ((c >= '0' && c <= '9') || c == '*' || c == '.' ||
+			c == '-');
 }
 
-int valid_conversion(char *format, int *i_format)
+int has_invalide_char_in_flag(char *format, int i)
 {
-	int i;
-
-	i = *i_format;
-	if (invalid_flags(format, &i))
-		return (0);
-	if (is_conversion_char(format[i]))
-		return (1);
-	return (0);
-}
-
-int is_conversion(char *format, int *i_format)
-{
-	int i;
-
-	i = *i_format;
-	if (format[i] != '%' || !format[++i])
-		return (0);
-	if (format[i] == '%')
+	while (format[i] && !is_conversion_char(format[i]))
 	{
-		++(*i_format);
-		return (0);
+		if (!is_allowed_char_in_flag(format[i]))
+			return (1);
+		i++;
 	}
+	return (0);
+}
+
+int valide_star_nb_combi(char *format, int i)
+{
+	int nb_star_width;
+	int nb_star_precision;
+	int mark;
+
+	nb_star_width = 0;
+	nb_star_precision = 0;
+	mark = 0;
+
+	while (format[i] && format[i] == '-')
+		++i;
+	while (format[i] >= '0' && format[i] <= '9')
+	{
+		i++;
+		mark = 1;
+	}
+	if (format[i] == '*' && mark)
+		return (0);
+
+
+	while (format[i] && format[i] == '*')
+	{
+		nb_star_width++;
+		i++;
+	}
+	if (nb_star_width > 1)
+		return (0);
+
+
+	if (format[i] == '.')
+		i++;
+	while (format[i] && format[i] == '*')
+	{
+		nb_star_precision++;
+		i++;
+	}
+	if (nb_star_precision > 1)
+		return (0);
+
+	while (format[i] >= '0' && format[i] <= '9')
+	{
+		i++;
+		mark = 1;
+	}
+	if (!is_conversion_char(format[i]))
+		return (0);
+	return (1);
+}
+
+int is_conversion(char *format, int *i)
+{
+	int j;
+
+	j = *i;
+	if (format[j] != '%' || !format[j + 1])
+		return (0);
+	if (format[j + 1] == '%')
+		return (0);
+	(*i)++;
 	return (1);
 }

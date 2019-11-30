@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 19:53:34 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/28 18:14:18 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/30 01:02:15 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void ft_init_sign(t_flag *my_flags, char *format, int *i)
 		(*my_flags).is_signed = 1;
 		(*i)++;
 	}
-	if (*i == 1)
+	if (*i == 0)
 		(*my_flags).is_signed = 0;
 }
 
@@ -56,10 +56,9 @@ t_flag	ft_initialize_attribution_flag(char *format)
 	int i;
 	t_flag my_flags;
 
-	i = 1;
+	i = 0;
 	ft_init_sign(&my_flags, format, &i);
 	my_flags.f_max_width = ft_get_flag_value(format, &i);
 	ft_init_precision(&my_flags, format, &i);
-
 	return my_flags;
 }
