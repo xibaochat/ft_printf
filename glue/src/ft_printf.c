@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:40 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/30 01:04:15 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/30 05:54:33 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void simple_print(char c, int *nb_output, int *i)
 
 int printf_core(va_list *ap, char *format)
 {
-	int	i;
+	int i;
 	int nb_output;
 	char *new;
 

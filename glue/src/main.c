@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:40 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/30 01:13:15 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/30 06:02:16 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -34,8 +34,8 @@ int main(void)
 //	printf("%10.*d\n", 10, 49);
 //	ft_printf("%-10.*d\n", 10, 49);
 //	printf("%-10.*d\n", 10, 49);
-	ft_printf("bebe chat hen lei %.* kitten\n", 10, 49);
-	printf("bebe chat hen lei %.* kitten\n", 10, 49);
+	ft_printf("bebe chat hen lei %*.*s kitten\n", 10, 15, "420");
+	printf("bebe chat hen lei %*.*s kitten\n", 10, 15, "420");
 
 
 

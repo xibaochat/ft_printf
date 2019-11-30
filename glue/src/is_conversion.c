@@ -6,19 +6,19 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 16:03:30 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/30 01:05:40 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/30 05:31:40 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int is_allowed_char_in_flag(char c)
+static int	is_allowed_char_in_flag(char c)
 {
 	return ((c >= '0' && c <= '9') || c == '*' || c == '.' ||
 			c == '-');
 }
 
-int has_invalide_char_in_flag(char *format, int i)
+int			has_invalide_char_in_flag(char *format, int i)
 {
 	while (format[i] && !is_conversion_char(format[i]))
 	{
@@ -29,51 +29,48 @@ int has_invalide_char_in_flag(char *format, int i)
 	return (0);
 }
 
-int valide_star_nb_combi(char *format, int i)
+static int	has_nb_and_star(char *format, int *i)
 {
-	int nb_star_width;
-	int nb_star_precision;
 	int mark;
 
-	nb_star_width = 0;
-	nb_star_precision = 0;
 	mark = 0;
-
-	while (format[i] && format[i] == '-')
-		++i;
-	while (format[i] >= '0' && format[i] <= '9')
+	while (format[*i] && format[*i] == '-')
+		(*i)++;
+	while (format[*i] >= '0' && format[*i] <= '9')
 	{
-		i++;
+		(*i)++;
 		mark = 1;
 	}
-	if (format[i] == '*' && mark)
-		return (0);
+	if (format[*i] == '*' && mark)
+		return (1);
+	return (0);
+}
 
+static int nb_stars(char *format, int *i)
+{
+	int nb_stars;
 
-	while (format[i] && format[i] == '*')
+	nb_stars = 0;
+	while (format[*i] && format[*i] == '*')
 	{
-		nb_star_width++;
-		i++;
+		nb_stars++;
+		(*i)++;
 	}
-	if (nb_star_width > 1)
+	return (nb_stars);
+}
+
+int valide_star_nb_combi(char *format, int i)
+{
+	if (has_nb_and_star(format, &i))
 		return (0);
-
-
+	if (nb_stars(format, &i) > 1)
+		return (0);
 	if (format[i] == '.')
 		i++;
-	while (format[i] && format[i] == '*')
-	{
-		nb_star_precision++;
-		i++;
-	}
-	if (nb_star_precision > 1)
+	if (nb_stars(format, &i) > 1)
 		return (0);
-
 	while (format[i] >= '0' && format[i] <= '9')
-	{
 		i++;
-		mark = 1;
-	}
 	if (!is_conversion_char(format[i]))
 		return (0);
 	return (1);

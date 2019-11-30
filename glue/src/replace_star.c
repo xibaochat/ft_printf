@@ -7,7 +7,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 17:12:43 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/29 20:27:21 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/30 06:01:05 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char *manage_star(va_list *ap, char *format, int i)
 	}
 	while (format[i] && format[i] != '.')
 		i++;
-	if (format[i] == '.' && format[++i] == '*' && k < 2)
+	if (format[i] == '.' && format[++i] == '*' && j < 2)
 		format = replace_star(ap, format, i);
 	return (format);
 }
