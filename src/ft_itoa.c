@@ -6,7 +6,7 @@
 /*   By: xinwang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 11:49:03 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/29 16:47:40 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/01 17:40:39 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int			get_size_int(int n)
 		size++;
 		n = n / 10;
 	}
-	return (size);
+	return (size + 2);
 }
 
 static char			*get_converted_str(char *str, unsigned int res, int *i)
@@ -46,7 +46,7 @@ char				*ft_itoa(int n)
 
 	i = 0;
 	res = n;
-	if (!(str = (char *)malloc(get_size_int(n) + 1)))
+	if (!(str = ft_strnew(get_size_int(n) + 1)))
 		return (NULL);
 	if (n < 0)
 	{
@@ -55,5 +55,6 @@ char				*ft_itoa(int n)
 	}
 	str = get_converted_str(str, res, &i);
 	str[i] = '\0';
+	str[i + 1] = '\0';
 	return (str);
 }

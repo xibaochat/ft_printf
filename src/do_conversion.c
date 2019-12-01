@@ -6,18 +6,29 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 17:36:57 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/30 05:28:00 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/01 17:51:54 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+static char *get_str_from_arg(va_list *ap)
+{
+	char *arg;
+	char *new;
+
+	arg = va_arg(*ap, char *);
+	new = ft_strnew(ft_strlen(arg) + 1);
+	ft_strcat(new, arg);
+	return (new);
+}
 
 static char *get_arg_as_str(va_list *ap, char c)
 {
 	if (c == 'd' || c == 'i')
 		return (ft_itoa(va_arg(*ap, int)));
 	else if (c == 's')
-		return va_arg(*ap, char *);
+		return get_str_from_arg(ap);
 	else if (c == 'c')
 		return (char_to_str(va_arg(*ap, int)));
 	else if (c == 'u')
@@ -42,10 +53,17 @@ int do_conversion(va_list *ap, char *format, int i)
 {
 	char conversion_char;
 	char *value;
+	int count;
 
+	value = NULL;
 	conversion_char = get_conversion_char(format, i);
+
 	value = get_arg_as_str(ap, conversion_char);
-	value = manage_flags(&(format[i]), value, conversion_char);
+	manage_flags(&(format[i]), &value, conversion_char);
+
 	ft_putstr(value);
-	return (ft_strlen(value));
+	count = ft_strlen(value);
+
+	free_str(&value);
+	return (count);
 }

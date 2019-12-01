@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/21 04:47:54 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 17:40:51 by xinwang          ###   ########.fr       */
+/*   Created: 2019/12/01 17:08:51 by xinwang           #+#    #+#             */
+/*   Updated: 2019/12/01 17:08:51 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*ft_strnew_with_char(int size, char c)
+char    *ft_strcat(char *dest, char *src)
 {
-	char *ptr;
-	int  i;
+	unsigned int    lens;
+	unsigned int    i;
 
-	if (!(ptr = (char *)malloc(size + 1)))
-		return (NULL);
 	i = 0;
-	while (i < size)
-		ptr[i++] = c;
-	ptr[i] = '\0';
-	return (ptr);
-}
-
-char    *ft_strnew(int size)
-{
-	char *ptr;
-	int  i;
-
-	if (!(ptr = (char *)malloc(size)))
-		return (NULL);
-	i = 0;
-	while (i < size)
-		ptr[i++] = 0;
-	return (ptr);
+	lens = ft_strlen(dest);
+	while (src[i])
+		dest[lens++] = src[i++];
+	dest[lens] = '\0';
+	return (dest);
 }

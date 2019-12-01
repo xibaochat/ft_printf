@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/30 00:17:01 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/01 17:22:57 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char    			*ft_strnew_with_char(int size, char c);
 char                *ft_trans_to_x(uintmax_t n);
 char                *ft_trans_to_X(uintmax_t n);
 char				*ptr_to_str(void *ptr);
-char *manage_flags(char *format, char *value, char conversion_char);
+void manage_flags(char *format, char **value, char conversion_char);
 t_flag				ft_initialize_attribution_flag(char *format);
 void				copy_at_the_end(char *value, char **new_value);
 void				copy_at_the_begining(char *value, char **new_value);
@@ -62,8 +62,8 @@ int valid_conversion(char *format, int *i_format);
 char *manage_star(va_list *ap, char *format, int i);
 int has_invalide_char_in_flag(char *format, int i);
 int valide_star_nb_combi(char *format, int i);
-
-
+char *ft_strcat(char *dest, char *src);
+void free_str(char **s);
 
 
 

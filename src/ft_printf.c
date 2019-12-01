@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:40 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/30 05:54:33 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/01 17:44:57 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int printf_core(va_list *ap, char *format)
 {
 	int i;
 	int nb_output;
-	char *new;
 
 	i = 0;
 	nb_output = 0;
@@ -44,15 +43,19 @@ int printf_core(va_list *ap, char *format)
 		else
 			simple_print(format[i], &nb_output, &i);
 	}
+	free_str(&format);
 	return (nb_output);
 }
 
 int ft_printf(char *format, ...)
 {
 	va_list	ap;
+	char *new_format;
 
 	if (!format)
 		return (0);
 	va_start(ap, format);
-	return (printf_core(&ap, format));
+	new_format = ft_strnew(ft_strlen(format) + 1);
+	ft_strcat(new_format, format);
+	return (printf_core(&ap, new_format));
 }
