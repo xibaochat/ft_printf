@@ -30,7 +30,7 @@ static int			get_size(int n)
 	return (size);
 }
 
-static char			*get_converted_str(char *str, uintmax_t res, int *i)
+static char			*get_converted_str(char *str, unsigned int res, int *i)
 {
 	char base[17] = "0123456789ABCDEF";
 
@@ -40,10 +40,10 @@ static char			*get_converted_str(char *str, uintmax_t res, int *i)
 	return (str);
 }
 
-char                *ft_trans_to_X(uintmax_t n)
+char                *ft_trans_to_X(unsigned int n)
 {
 	int				i;
-	uintmax_t		res;
+	unsigned int		res;
 	char			*str;
 
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 17:36:57 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 18:20:21 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/01 18:30:58 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ static char *get_arg_as_str(va_list *ap, char c)
 	else if (c == 'u')
 		return (ft_itoa(va_arg(*ap, unsigned int)));
 	else if (c == 'x')
-		return (ft_trans_to_x(va_arg(*ap, int)));
+		return (ft_trans_to_x(va_arg(*ap, unsigned int)));
 	else if (c == 'X')
-		return (ft_trans_to_X((va_arg(*ap, int))));
+		return (ft_trans_to_X((va_arg(*ap, unsigned int))));
 	else if (c == 'p')
 		return (ptr_to_str(va_arg(*ap, void *)));
 	return (NULL);
