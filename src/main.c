@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:40 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/30 06:03:17 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/01 18:27:29 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libftprintf.h"
@@ -38,9 +38,10 @@ int main(void)
 //	printf("bebe chat hen lei %*.*s kitten\n", 10, 15, "420");
 
 
-	printf("bebe chat %*.7s ip cute\n", 10,  s);
-	ft_printf("bebe chat %*.7s ip cute\n", 10, s);
-
+//	printf("bebe chat %*.7s ip cute\n", 10,  s);
+//	ft_printf("bebe chat %*.7s ip cute\n", 10, s);
+	ft_printf("%u\n", 2147483648);
+	printf("%u\n", 2147483648);
 //	printf("bebe chat %-59.s ip cute\n", s, 42);
 	return (0);
 }

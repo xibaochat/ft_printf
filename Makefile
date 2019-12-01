@@ -6,7 +6,7 @@
 #    By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/28 15:14:56 by xinwang           #+#    #+#              #
-#    Updated: 2019/12/01 17:10:06 by xinwang          ###   ########.fr        #
+#    Updated: 2019/12/01 18:07:26 by xinwang          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -40,7 +40,7 @@ $(NAME): $(SRCO)
 	ranlib $(NAME)
 
 main:
-	$(CC) $(MAIN_FILE) $(SRCS) -I $(HEADER_DIR) -o $(NAME)
+	$(CC) $(MAIN_FILE) $(SRCS) -I $(HEADER_DIR) -o $(NAME) -g
 
 clean:
 	rm -f $(SRCSO)

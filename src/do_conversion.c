@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 17:36:57 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 17:51:54 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/01 18:20:21 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,16 @@ static char *get_str_from_arg(va_list *ap)
 	char *new;
 
 	arg = va_arg(*ap, char *);
-	new = ft_strnew(ft_strlen(arg) + 1);
-	ft_strcat(new, arg);
+	if (arg)
+	{
+		new = ft_strnew(ft_strlen(arg) + 1);
+		ft_strcat(new, arg);
+	}
+	else
+	{
+		new = ft_strnew(7);
+		ft_strcat(new, "(null)");
+	}
 	return (new);
 }
 
@@ -44,8 +52,8 @@ static char *get_arg_as_str(va_list *ap, char c)
 
 static char get_conversion_char(char *format, int i)
 {
-	while (!is_conversion_char(format[++i]))
-		;
+	while (!is_conversion_char(format[i]))
+		++i;
 	return (format[i]);
 }
 

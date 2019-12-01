@@ -6,7 +6,7 @@
 /*   By: xinwang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 11:49:03 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 17:40:39 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/01 18:24:57 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,25 @@ int			get_size_int(int n)
 	return (size + 2);
 }
 
-static char			*get_converted_str(char *str, unsigned int res, int *i)
+static int			get_size_long_int(long int n)
+{
+	int				size;
+
+	size = 1;
+	if (n < 0)
+	{
+		size++;
+		n = -n;
+	}
+	while (n > 10)
+	{
+		size++;
+		n = n / 10;
+	}
+	return (size + 2);
+}
+
+static char			*get_converted_str(char *str, long int res, int *i)
 {
 	if (res >= 10)
 		get_converted_str(str, res / 10, i);
@@ -38,10 +56,10 @@ static char			*get_converted_str(char *str, unsigned int res, int *i)
 	return (str);
 }
 
-char				*ft_itoa(int n)
+char				*ft_itoa(long int n)
 {
 	int				i;
-	unsigned int	res;
+	long int	res;
 	char			*str;
 
 	i = 0;

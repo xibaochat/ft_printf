@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 17:22:57 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/01 18:25:12 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int					is_conversion(char *format, int *i_format);
 void skip_conversion_chars(char *format, int *i);
 int is_conversion_char(char c);
 int do_conversion(va_list *ap, char *format, int i);
-char                *ft_itoa(int n);
+char                *ft_itoa(long int n);
 char *char_to_str(char c);
 size_t				ft_strlen(const char *str);
 char    			*ft_strnew_with_char(int size, char c);
