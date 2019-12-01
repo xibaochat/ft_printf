@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:40 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 18:32:43 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/01 20:12:49 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libftprintf.h"
@@ -40,8 +40,20 @@ int main(void)
 
 //	printf("bebe chat %*.7s ip cute\n", 10,  s);
 //	ft_printf("bebe chat %*.7s ip cute\n", 10, s);
-	ft_printf("%x\n", -2147483648);
-	printf("%x\n", -2147483648);
+	ft_printf(".%.*s.\n", 10, "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+	printf(".%.*s.\n\n", 10, "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+
+	ft_printf(".%.*s.\n", -10, "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+	printf(".%.*s.\n\n", -10, "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+
+
+	ft_printf(".%.10s.\n", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+	printf(".%.10s.\n\n", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+
+	ft_printf(".%.-10s.\n", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+	printf(".%.-10s.\n\n", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+
+
 //	printf("bebe chat %-59.s ip cute\n", s, 42);
 	return (0);
 }

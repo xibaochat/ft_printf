@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 18:06:32 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 17:55:48 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/01 19:08:17 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void manage_flags(char *format, char **value, char conversion_char)
 	int v_lens;
 	char *new_value;
 
+	new_value = NULL;
 	v_lens = ft_strlen(*value);
 	my_flags = ft_initialize_attribution_flag(format);
 	if (!(my_flags.have_precision) && !(my_flags.f_max_width))
@@ -35,6 +36,5 @@ void manage_flags(char *format, char **value, char conversion_char)
 		new_value = ft_apply_flag_to_str(my_flags, *value, v_lens);
 	else if (conversion_char == 'p')
 		new_value = ft_apply_flag_to_adress(my_flags, *value, v_lens);
-	free_str(value);
 	*value = new_value;
 }

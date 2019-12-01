@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 18:25:12 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/01 19:22:02 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int has_invalide_char_in_flag(char *format, int i);
 int valide_star_nb_combi(char *format, int i);
 char *ft_strcat(char *dest, char *src);
 void free_str(char **s);
-
+int		ft_strcmp(const char *s1, const char *s2);
 
 
 void				ft_putstr(char *s);
