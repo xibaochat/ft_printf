@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 18:06:58 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 19:39:07 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/02 21:30:20 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,10 @@ void replace_str_by(char **dest, char *src)
 
 char *ft_apply_flag_to_adress(t_flag my_flags, char *value, int v_lens)
 {
-	char *tmp;
-
 	if (my_flags.f_precision > v_lens)
 		replace_str_by(&value, ft_apply_precision(my_flags.f_precision, value));
 	add_hex_chars(&value);
-	if (my_flags.f_max_width > ft_strlen(value))
+	if ((unsigned int)my_flags.f_max_width > ft_strlen(value))
 	{
 		if (my_flags.is_signed)
 			replace_str_by(&value, ft_apply_signed_width(my_flags, value));
@@ -55,9 +53,9 @@ char *ft_apply_flag_to_nb(t_flag my_flags, int v_lens, char *value)
 	else if	(my_flags.have_precision && my_flags.f_precision == 0 &&
 			 !ft_strcmp(value, "0"))
 		replace_str_by(&value, ft_strnew(1));
-	if (my_flags.f_max_width > ft_strlen(value) && my_flags.is_signed)
+	if ((unsigned int)my_flags.f_max_width > ft_strlen(value) && my_flags.is_signed)
 		replace_str_by(&value, ft_apply_signed_width(my_flags, value));
-	else if (my_flags.f_max_width > ft_strlen(value) && !my_flags.is_signed)
+	else if ((unsigned int)my_flags.f_max_width > ft_strlen(value) && !my_flags.is_signed)
 		replace_str_by(&value, ft_apply_unsigned_width(my_flags, value));
 	return (value);
 }
@@ -75,7 +73,7 @@ char *ft_apply_flag_to_str(t_flag my_flags, char *value, int v_lens)
 {
 	if (my_flags.have_precision && my_flags.f_precision < v_lens)
 		replace_str_by(&value, ft_apply_precision_on_str(my_flags, value));
-	if (my_flags.f_max_width > ft_strlen(value))
+	if ((unsigned int)my_flags.f_max_width > ft_strlen(value))
 	{
 		if (my_flags.is_signed)
 			replace_str_by(&value, ft_apply_signed_width(my_flags, value));

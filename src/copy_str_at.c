@@ -16,7 +16,7 @@ void copy_at_the_begining(char *value, char **new_value)
 	int i;
 
 	i = -1;
-	while (value[++i])
+	while (value && value[++i])
 		(*new_value)[i] = value[i];
 }
 
@@ -25,6 +25,6 @@ void ncopy_at_the_begining(unsigned int n, char *value, char **new_value)
 	int i;
 
 	i = -1;
-	while (value[++i] && n--)
+	while (value && value[++i] && n--)
 		(*new_value)[i] = value[i];
 }

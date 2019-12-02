@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 18:22:14 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 20:13:11 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/01 21:36:38 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,12 @@ char *ft_apply_precision_on_str(t_flag my_flags, char *value)
 	char *new_value;
 
 	new_value = ft_strnew_with_char(my_flags.f_precision, ' ');
-	if (new_value)
+	if (!ft_strcmp(value, "(null)"))
+	{
+		free_str(&value);
+		value = ft_strnew(1);
+	}
+	else if (new_value)
 	{
 		ncopy_at_the_begining(my_flags.f_precision, value, &new_value);
 		return (new_value);

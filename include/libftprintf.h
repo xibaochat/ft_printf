@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 19:22:02 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/02 21:16:13 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ char                *ft_itoa(long int n);
 char *char_to_str(char c);
 size_t				ft_strlen(const char *str);
 char    			*ft_strnew_with_char(int size, char c);
-char                *ft_trans_to_x(unsigned int n);
-char                *ft_trans_to_X(unsigned int n);
+char                *ft_trans_to_x(uintmax_t n);
+char                *ft_trans_to_X(uintmax_t n);
 char				*ptr_to_str(void *ptr);
 void manage_flags(char *format, char **value, char conversion_char);
 t_flag				ft_initialize_attribution_flag(char *format);

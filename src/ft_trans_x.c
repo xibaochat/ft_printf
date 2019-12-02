@@ -6,22 +6,17 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:25:59 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 18:35:53 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/02 21:16:26 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static int			get_size(unsigned int n)
+static int			get_size(uintmax_t n)
 {
 	int				size;
 
 	size = 1;
-	if (n < 0)
-	{
-		size++;
-		n = -n;
-	}
 	while (n > 16)
 	{
 		size++;
@@ -30,7 +25,7 @@ static int			get_size(unsigned int n)
 	return (size);
 }
 
-static char			*get_converted_str(char *str, unsigned int res, int *i)
+static char			*get_converted_str(char *str, uintmax_t res, int *i)
 {
 	char base[17] = "0123456789abcdef";
 
@@ -40,21 +35,16 @@ static char			*get_converted_str(char *str, unsigned int res, int *i)
 	return (str);
 }
 
-char				*ft_trans_to_x(unsigned int n)
+char				*ft_trans_to_x(uintmax_t n)
 {
 	int				i;
-	unsigned int		res;
+	uintmax_t		res;
 	char			*str;
 
 	i = 0;
 	res = n;
 	if (!(str = (char *)malloc(get_size(n) + 1)))
 		return (NULL);
-	if (n < 0)
-	{
-		str[i++] = '-';
-		res = -1 * n;
-	}
 	str = get_converted_str(str, res, &i);
 	str[i] = '\0';
 	return (str);

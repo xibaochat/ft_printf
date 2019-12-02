@@ -7,7 +7,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 17:12:43 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 20:13:41 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/02 19:52:47 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char *replace_star(va_list *ap, char *format, int i)
 
 	s_value = ft_itoa(value);
 	ft_strcat(new_str + i, s_value);
-	ft_strcat(new_str + (i + get_size_int(value)), format + i + 1);
+	ft_strcat(new_str + (i + ft_strlen(s_value)), format + i + 1);
 	free_str(&s_value);
 	return (new_str);
 }
@@ -58,6 +58,9 @@ char *manage_star(va_list *ap, char *format, int i)
 		tmp = replace_star(ap, format, i);
 		free_str(&format);
 		format = tmp;
+		while (format[i] && (format[i] == '-' ||
+							 (format[i] >= '0' && format[i] <= '9')))
+			++i;
 	}
 	k = i;
 	while (format[k] && format[k] == '*')

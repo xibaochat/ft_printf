@@ -6,31 +6,13 @@
 /*   By: xinwang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 11:49:03 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 18:44:21 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/02 19:47:43 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
 int			get_size_int(int n)
-{
-	int				size;
-
-	size = 1;
-	if (n < 0)
-	{
-		size++;
-		n = -n;
-	}
-	while (n > 10)
-	{
-		size++;
-		n = n / 10;
-	}
-	return (size + 2);
-}
-
-static int			get_size_long_int(long int n)
 {
 	int				size;
 
