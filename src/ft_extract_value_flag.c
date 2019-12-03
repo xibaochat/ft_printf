@@ -6,18 +6,18 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 19:53:34 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/03 22:31:43 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/03 22:55:10 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static int ft_get_flag_value(char *str, int *i)
+static int ft_get_flag_value(char conversion_char, char *str, int *i)
 {
 	int s;
 
 	s = 0;
-	if (str[*i] && str[*i] == '0')
+	if (conversion_char != 's' && str[*i] && str[*i] == '0')
 	{
 		while (str[*i] && str[*i] == '0')
 			(*i)++;
@@ -55,7 +55,7 @@ static void ft_init_precision(t_flag *my_flags, char *format, int *i)
 	if (have_precision || (format[*i] >= '0' && format[*i] <= '9'))
 	{
 
-		my_flags->f_precision = ft_get_flag_value(format, i);
+		my_flags->f_precision = ft_get_flag_value('\0', format, i);
 		my_flags->have_precision = 1;
 	}
 	else
@@ -65,14 +65,14 @@ static void ft_init_precision(t_flag *my_flags, char *format, int *i)
 	}
 }
 
-t_flag	ft_initialize_attribution_flag(char *format)
+t_flag	ft_initialize_attribution_flag(char conversion_char, char *format)
 {
 	int i;
 	t_flag my_flags;
 
 	i = 0;
 	ft_init_sign(&my_flags, format, &i);
-	my_flags.f_max_width = ft_get_flag_value(format, &i);
+	my_flags.f_max_width = ft_get_flag_value(conversion_char, format, &i);
 	ft_init_precision(&my_flags, format, &i);
 	return my_flags;
 }
