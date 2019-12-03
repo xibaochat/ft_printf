@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 17:36:57 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/02 21:27:04 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/03 21:43:18 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,17 @@ int do_conversion(va_list *ap, char *format, int i)
 	int count;
 
 	value = NULL;
+	count = 0;
 	conversion_char = get_conversion_char(format, i);
 
 	value = get_arg_as_str(ap, conversion_char);
+	if (ESCAPED_ZERO_CHAR_CONVERSION)
+		++count;
+
 	manage_flags(&(format[i]), &value, conversion_char);
 
 	ft_putstr(value);
-	count = ft_strlen(value);
+	count += ft_strlen(value);
 	free_str(&value);
 	return (count);
 }

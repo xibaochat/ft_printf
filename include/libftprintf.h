@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/02 21:16:13 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/03 21:43:32 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_flag
 	int         f_precision;
 	int			have_precision;
 }               t_flag;
+
+# define ESCAPED_ZERO_CHAR_CONVERSION (value && !value[0])
 
 int					ft_printf(char *format, ...);
 void				ft_putchar(char c);

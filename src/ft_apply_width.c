@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 18:23:29 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 21:28:41 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/03 21:43:22 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char *ft_apply_signed_width(t_flag my_flags, char *value)
 {
 	char *new_value;
 
+	if (ESCAPED_ZERO_CHAR_CONVERSION)
+		--(my_flags.f_max_width);
 	new_value = ft_strnew_with_char(my_flags.f_max_width, ' ');
 	if (new_value)
 	{
