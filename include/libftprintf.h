@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/03 21:43:32 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/03 22:03:04 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void				copy_at_the_end(char *value, char **new_value);
 void				copy_at_the_begining(char *value, char **new_value);
 char				*ft_apply_unsigned_width(t_flag my_flags, char *value);
 char				*ft_apply_signed_width(t_flag my_flags, char *value);
-char				*ft_apply_signed_width(t_flag my_flags, char *value);
+char *ft_apply_signed_width_to_char(t_flag my_flags, char *value);
 char				*ft_apply_precision(int v_precision, char *str);
 char *ft_apply_flag_to_nb(t_flag my_flags, int v_lens, char *value);
 char *ft_apply_flag_to_char(t_flag my_flags, char *value);

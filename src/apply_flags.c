@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 18:06:58 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/02 21:30:20 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/03 22:06:05 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char *ft_apply_flag_to_nb(t_flag my_flags, int v_lens, char *value)
 char *ft_apply_flag_to_char(t_flag my_flags, char *value)
 {
 	if (my_flags.f_max_width > 1 && my_flags.is_signed)
-		replace_str_by(&value, ft_apply_signed_width(my_flags, value));
+		replace_str_by(&value, ft_apply_signed_width_to_char(my_flags, value));
 	else if (my_flags.f_max_width > 1 && !my_flags.is_signed)
 		replace_str_by(&value, ft_apply_unsigned_width(my_flags, value));
 	return (value);
