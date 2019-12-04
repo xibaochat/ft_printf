@@ -6,11 +6,22 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 19:53:34 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/03 22:55:10 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/04 01:42:13 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+static int has_point(char *str, int i)
+{
+	while (str[i])
+	{
+		if (str[i] == '.')
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 static int ft_get_flag_value(char conversion_char, char *str, int *i)
 {
@@ -21,7 +32,8 @@ static int ft_get_flag_value(char conversion_char, char *str, int *i)
 	{
 		while (str[*i] && str[*i] == '0')
 			(*i)++;
-		return (0);
+		if (!has_point(str, *i))
+			return (0);
 	}
 	while (str[*i] && str[*i] >= '0' && str[*i] <= '9')
 	{
