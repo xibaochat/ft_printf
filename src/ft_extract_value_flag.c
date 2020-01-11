@@ -6,13 +6,13 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 19:53:34 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/04 01:42:13 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/04 05:02:40 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static int has_point(char *str, int i)
+static int	has_point(char *str, int i)
 {
 	while (str[i])
 	{
@@ -23,9 +23,9 @@ static int has_point(char *str, int i)
 	return (0);
 }
 
-static int ft_get_flag_value(char conversion_char, char *str, int *i)
+static int	ft_get_flag_value(char conversion_char, char *str, int *i)
 {
-	int s;
+	int	s;
 
 	s = 0;
 	if (conversion_char != 's' && str[*i] && str[*i] == '0')
@@ -43,7 +43,7 @@ static int ft_get_flag_value(char conversion_char, char *str, int *i)
 	return (s);
 }
 
-static void ft_init_sign(t_flag *my_flags, char *format, int *i)
+static void	ft_init_sign(t_flag *my_flags, char *format, int *i)
 {
 	while (format[*i] && format[*i] == '-')
 	{
@@ -54,7 +54,7 @@ static void ft_init_sign(t_flag *my_flags, char *format, int *i)
 		(*my_flags).is_signed = 0;
 }
 
-static void ft_init_precision(t_flag *my_flags, char *format, int *i)
+static void	ft_init_precision(t_flag *my_flags, char *format, int *i)
 {
 	int have_precision;
 
@@ -66,7 +66,6 @@ static void ft_init_precision(t_flag *my_flags, char *format, int *i)
 	}
 	if (have_precision || (format[*i] >= '0' && format[*i] <= '9'))
 	{
-
 		my_flags->f_precision = ft_get_flag_value('\0', format, i);
 		my_flags->have_precision = 1;
 	}
@@ -77,7 +76,7 @@ static void ft_init_precision(t_flag *my_flags, char *format, int *i)
 	}
 }
 
-t_flag	ft_initialize_attribution_flag(char conversion_char, char *format)
+t_flag		ft_initialize_attribution_flag(char conversion_char, char *format)
 {
 	int i;
 	t_flag my_flags;

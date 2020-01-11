@@ -6,13 +6,13 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 18:22:14 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 21:36:38 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/04 03:40:34 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static char *ft_apply_precision_on_neg(int v_precision, char *str)
+static char *apply_precision_on_neg(int v_precision, char *str)
 {
 	char *new_str;
 
@@ -26,13 +26,12 @@ static char *ft_apply_precision_on_neg(int v_precision, char *str)
 	return (NULL);
 }
 
-
-char *ft_apply_precision(int v_precision, char *str)
+char *apply_precision(int v_precision, char *str)
 {
 	char *new_str;
 
 	if (str && str[0] == '-')
-		return ft_apply_precision_on_neg(v_precision, str);
+		return apply_precision_on_neg(v_precision, str);
 	new_str = ft_strnew_with_char(v_precision, '0');
 	if (new_str)
 	{
@@ -42,7 +41,7 @@ char *ft_apply_precision(int v_precision, char *str)
 	return (NULL);
 }
 
-char *ft_apply_precision_on_str(t_flag my_flags, char *value)
+char *apply_precision_on_str(t_flag my_flags, char *value)
 {
 	char *new_value;
 

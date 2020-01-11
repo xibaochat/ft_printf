@@ -7,7 +7,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 17:12:43 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/02 19:52:47 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/12/05 14:26:43 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,55 +26,58 @@ static char    *ft_strncat(char *dest, char *src, unsigned int nb)
 	return (dest);
 }
 
-char *replace_star(va_list *ap, char *format, int i)
+char			*replace_star(va_list *ap, char *format, int i)
 {
-	char *new_str;
-	char *s_value;
-	int value;
+	char		*new_str;
+	char		*s_value;
+	int			value;
 
 	s_value = NULL;
 	value = va_arg(*ap, int);
 	new_str = ft_strnew(ft_strlen(format) + get_size_int(value));
 	new_str = ft_strncat(new_str, format, i);
-
 	s_value = ft_itoa(value);
 	ft_strcat(new_str + i, s_value);
 	ft_strcat(new_str + (i + ft_strlen(s_value)), format + i + 1);
 	free_str(&s_value);
+	free_str(&format);
 	return (new_str);
+}
+
+static void skip_signed_digit(char *format, int *i)
+{
+	while (format[*i] && (format[*i] == '-'
+						 || (format[*i] >= '0' && format[*i] <= '9')))
+		++(*i);
+}
+
+static void skip_stars(char *format, int *k, int *j)
+{
+	while (format[*k] && format[*k] == '*')
+	{
+		(*j)++;
+		(*k)++;
+	}
 }
 
 char *manage_star(va_list *ap, char *format, int i)
 {
 	int j;
 	int k;
-	char *tmp;
 
 	j = 0;
 	while (format[i] && format[i] != '*')
 		i++;
 	if (format[i] == '*')
 	{
-		tmp = replace_star(ap, format, i);
-		free_str(&format);
-		format = tmp;
-		while (format[i] && (format[i] == '-' ||
-							 (format[i] >= '0' && format[i] <= '9')))
-			++i;
+		format = replace_star(ap, format, i);
+		skip_signed_digit(format, &i);
 	}
 	k = i;
-	while (format[k] && format[k] == '*')
-	{
-		j++;
-		k++;
-	}
+	skip_stars(format, &k, &j);
 	while (format[i] && format[i] != '.')
 		i++;
 	if (format[i] == '.' && format[++i] == '*' && j < 2)
-	{
-		tmp = replace_star(ap, format, i);
-		free_str(&format);
-		format = tmp;
-	}
+		format = replace_star(ap, format, i);
 	return (format);
 }

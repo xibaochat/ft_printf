@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   add_hex_chars.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/01 19:21:21 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/04 03:41:31 by xinwang          ###   ########.fr       */
+/*   Created: 2019/12/04 03:12:31 by xinwang           #+#    #+#             */
+/*   Updated: 2019/12/04 03:12:51 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(const char *s1, const char *s2)
-{
-	int		i;
+#include "libftprintf.h"
 
-	i = 0;
-	while (s1[i] == s2[i])
-	{
-		if (s1[i] == '\0' && s2[i] == '\0')
-			return (0);
-		i++;
-	}
-	return ((((unsigned char *)s1)[i] - (((unsigned char *)s2)[i])));
+void add_hex_chars(char **value)
+{
+	char *new;
+
+	new = ft_strnew_with_char(ft_strlen(*value) + 2, '_');
+	copy_at_the_end(*value, &new);
+	if (*value)
+		free(*value);
+	*value = new;
+	(*value)[0] = '0';
+	(*value)[1] = 'x';
 }
