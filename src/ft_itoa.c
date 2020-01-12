@@ -6,7 +6,7 @@
 /*   By: xinwang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 11:49:03 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/02 19:47:43 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/12 03:03:39 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,5 @@ char				*ft_itoa(long int n)
 		res = -1 * n;
 	}
 	str = get_converted_str(str, res, &i);
-	str[i] = '\0';
-	str[i + 1] = '\0';
 	return (str);
 }
