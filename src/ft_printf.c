@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:40 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/12 01:28:35 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/12 03:06:53 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ int ft_printf(const char *format, ...)
 		return (0);
 	va_start(ap, format);
 	new_format = ft_strnew(ft_strlen(format) + 1);
-	ft_strcat(new_format, format);
+	ft_strcat(new_format, (char *)format);
 	return (printf_core(&ap, new_format));
 }
