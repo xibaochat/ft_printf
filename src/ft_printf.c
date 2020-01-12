@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:40 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/04 04:57:01 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/12 01:28:35 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int printf_core(va_list *ap, char *format)
 	return (nb_output);
 }
 
-int ft_printf(char *format, ...)
+int ft_printf(const char *format, ...)
 {
 	va_list	ap;
 	char *new_format;
