@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/05 13:13:12 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/12 01:31:29 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_flag
 
 # define ESCAPED_ZERO_CHAR_CONVERSION (value && !value[0])
 
-int		ft_printf(char *format, ...);
+int		ft_printf(const char *format, ...);
 int 	has_invalide_char_in_flag(char *format, int i);
 void	ft_putchar(char c);
 int		is_conversion(char *format, int *i_format);
