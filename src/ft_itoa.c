@@ -6,13 +6,13 @@
 /*   By: xinwang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 11:49:03 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/12 03:03:39 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/13 19:22:30 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int			get_size_int(int n)
+int			get_size_int(long int n)
 {
 	int				size;
 
@@ -27,7 +27,7 @@ int			get_size_int(int n)
 		size++;
 		n = n / 10;
 	}
-	return (size + 2);
+	return (size);
 }
 
 static char			*get_converted_str(char *str, long int res, int *i)
@@ -53,6 +53,6 @@ char				*ft_itoa(long int n)
 		str[i++] = '-';
 		res = -1 * n;
 	}
-	str = get_converted_str(str, res, &i);
+	get_converted_str(str, res, &i);
 	return (str);
 }
