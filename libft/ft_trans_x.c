@@ -6,13 +6,13 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:25:59 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/19 17:17:17 by xinwang          ###   ########.fr       */
+/*   Updated: 2019/11/19 17:16:36 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			get_size(uintmax_t n)
+static int			get_size(int n)
 {
 	int				size;
 
@@ -32,7 +32,7 @@ static int			get_size(uintmax_t n)
 
 static char			*get_converted_str(char *str, uintmax_t res, int *i)
 {
-	char base[17] = "0123456789abcdef";
+	char base[17] = "0123456789ABCDEF";
 
 	if (res >= 16)
 		get_converted_str(str, res / 16, i);
@@ -40,7 +40,7 @@ static char			*get_converted_str(char *str, uintmax_t res, int *i)
 	return (str);
 }
 
-char				*ft_trans_to_x(uintmax_t n)
+char                *ft_trans_to_X(uintmax_t n)
 {
 	int				i;
 	uintmax_t		res;
