@@ -14,8 +14,8 @@
 
 char	*ft_strnew_with_char(int size, char c)
 {
-	char *ptr;
-	int  i;
+	char	*ptr;
+	int		i;
 
 	if (!(ptr = (char *)malloc(size + 1)))
 		return (NULL);
@@ -26,10 +26,10 @@ char	*ft_strnew_with_char(int size, char c)
 	return (ptr);
 }
 
-char    *ft_strnew(int size)
+char	*ft_strnew(int size)
 {
-	char *ptr;
-	int  i;
+	char	*ptr;
+	int		i;
 
 	if (!(ptr = (char *)malloc(size)))
 		return (NULL);

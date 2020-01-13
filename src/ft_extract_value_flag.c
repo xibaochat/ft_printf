@@ -78,12 +78,12 @@ static void	ft_init_precision(t_flag *my_flags, char *format, int *i)
 
 t_flag		ft_initialize_attribution_flag(char conversion_char, char *format)
 {
-	int i;
-	t_flag my_flags;
+	int		i;
+	t_flag	my_flags;
 
 	i = 0;
 	ft_init_sign(&my_flags, format, &i);
 	my_flags.f_max_width = ft_get_flag_value(conversion_char, format, &i);
 	ft_init_precision(&my_flags, format, &i);
-	return my_flags;
+	return (my_flags);
 }

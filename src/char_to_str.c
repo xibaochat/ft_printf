@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-char *char_to_str(char c)
+char	*char_to_str(char c)
 {
 	char *s;
 

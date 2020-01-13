@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-char *ft_apply_unsigned_width(t_flag my_flags, char *value)
+char	*ft_apply_unsigned_width(t_flag my_flags, char *value)
 {
 	char *new_value;
 
@@ -25,14 +25,14 @@ char *ft_apply_unsigned_width(t_flag my_flags, char *value)
 	return (NULL);
 }
 
-char *ft_apply_signed_width_to_char(t_flag my_flags, char *value)
+char	*ft_apply_signed_width_to_char(t_flag my_flags, char *value)
 {
-	if (ESCAPED_ZERO_CHAR_CONVERSION)
+	if (value && !value[0])
 		--(my_flags.f_max_width);
 	return (ft_apply_signed_width(my_flags, value));
 }
 
-char *ft_apply_signed_width(t_flag my_flags, char *value)
+char	*ft_apply_signed_width(t_flag my_flags, char *value)
 {
 	char *new_value;
 

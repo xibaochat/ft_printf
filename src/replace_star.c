@@ -1,8 +1,7 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   replace_star.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,10 +12,10 @@
 
 #include "libftprintf.h"
 
-static char    *ft_strncat(char *dest, char *src, unsigned int nb)
+static char		*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	unsigned int    lens;
-	unsigned int    i;
+	unsigned int	lens;
+	unsigned int	i;
 
 	i = 0;
 	lens = ft_strlen(dest);
@@ -44,14 +43,14 @@ char			*replace_star(va_list *ap, char *format, int i)
 	return (new_str);
 }
 
-static void skip_signed_digit(char *format, int *i)
+static void		skip_signed_digit(char *format, int *i)
 {
 	while (format[*i] && (format[*i] == '-'
-						 || (format[*i] >= '0' && format[*i] <= '9')))
+	|| (format[*i] >= '0' && format[*i] <= '9')))
 		++(*i);
 }
 
-static void skip_stars(char *format, int *k, int *j)
+static void		skip_stars(char *format, int *k, int *j)
 {
 	while (format[*k] && format[*k] == '*')
 	{
@@ -60,7 +59,7 @@ static void skip_stars(char *format, int *k, int *j)
 	}
 }
 
-char *manage_star(va_list *ap, char *format, int i)
+char			*manage_star(va_list *ap, char *format, int i)
 {
 	int j;
 	int k;

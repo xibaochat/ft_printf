@@ -12,9 +12,9 @@
 
 #include "libftprintf.h"
 
-static char *apply_precision_on_neg(int v_precision, char *str)
+static char	*apply_precision_on_neg(int v_precision, char *str)
 {
-	char *new_str;
+	char	*new_str;
 
 	new_str = ft_strnew_with_char(v_precision + 1, '0');
 	new_str[0] = '-';
@@ -26,12 +26,12 @@ static char *apply_precision_on_neg(int v_precision, char *str)
 	return (NULL);
 }
 
-char *apply_precision(int v_precision, char *str)
+char		*apply_precision(int v_precision, char *str)
 {
-	char *new_str;
+	char	*new_str;
 
 	if (str && str[0] == '-')
-		return apply_precision_on_neg(v_precision, str);
+		return (apply_precision_on_neg(v_precision, str));
 	new_str = ft_strnew_with_char(v_precision, '0');
 	if (new_str)
 	{
@@ -41,7 +41,7 @@ char *apply_precision(int v_precision, char *str)
 	return (NULL);
 }
 
-char *apply_precision_on_str(t_flag my_flags, char *value)
+char		*apply_precision_on_str(t_flag my_flags, char *value)
 {
 	char *new_value;
 

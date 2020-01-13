@@ -3,56 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: xinwang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/18 11:49:03 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/12 03:03:39 by xinwang          ###   ########.fr       */
+/*   Created: 2019/11/19 01:25:59 by xinwang           #+#    #+#             */
+/*   Updated: 2019/12/02 21:16:26 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int					get_size_int(int n)
+static int			get_size(uintmax_t n)
 {
 	int				size;
 
 	size = 1;
-	if (n < 0)
+	while (n > 16)
 	{
 		size++;
-		n = -n;
+		n = n / 16;
 	}
-	while (n > 10)
-	{
-		size++;
-		n = n / 10;
-	}
-	return (size + 2);
+	return (size);
 }
 
-static char			*get_converted_str(char *str, long int res, int *i)
+static char			*get_converted_str(char *str, uintmax_t res, int *i)
 {
-	if (res >= 10)
-		get_converted_str(str, res / 10, i);
-	str[(*i)++] = res % 10 + '0';
+	static char base[17] = "0123456789ABCDEF";
+
+	if (res >= 16)
+		get_converted_str(str, res / 16, i);
+	str[(*i)++] = base[res % 16];
 	return (str);
 }
 
-char				*ft_itoa(long int n)
+char				*ft_trans_capital_x(uintmax_t n)
 {
 	int				i;
-	long int		res;
+	uintmax_t		res;
 	char			*str;
 
 	i = 0;
 	res = n;
-	if (!(str = ft_strnew(get_size_int(n) + 1)))
+	if (!(str = (char *)malloc(get_size(n) + 1)))
 		return (NULL);
-	if (n < 0)
-	{
-		str[i++] = '-';
-		res = -1 * n;
-	}
 	str = get_converted_str(str, res, &i);
+	str[i] = '\0';
 	return (str);
 }
