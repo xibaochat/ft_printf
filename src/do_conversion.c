@@ -12,10 +12,10 @@
 
 #include "libftprintf.h"
 
-static char *get_str_from_arg(va_list *ap)
+static char	*get_str_from_arg(va_list *ap)
 {
-	char *arg;
-	char *new;
+	char	*arg;
+	char	*new;
 
 	arg = va_arg(*ap, char *);
 	new = NULL;
@@ -32,12 +32,12 @@ static char *get_str_from_arg(va_list *ap)
 	return (new);
 }
 
-static char *get_arg_as_str(va_list *ap, char c)
+static char	*get_arg_as_str(va_list *ap, char c)
 {
 	if (c == 'd' || c == 'i')
 		return (ft_itoa(va_arg(*ap, int)));
 	else if (c == 's')
-		return get_str_from_arg(ap);
+		return (get_str_from_arg(ap));
 	else if (c == 'c')
 		return (char_to_str(va_arg(*ap, int)));
 	else if (c == 'u')
@@ -45,30 +45,30 @@ static char *get_arg_as_str(va_list *ap, char c)
 	else if (c == 'x')
 		return (ft_trans_to_x(va_arg(*ap, unsigned int)));
 	else if (c == 'X')
-		return (ft_trans_to_X((va_arg(*ap, unsigned int))));
+		return (ft_trans_capital_x((va_arg(*ap, unsigned int))));
 	else if (c == 'p')
 		return (ptr_to_str(va_arg(*ap, void *)));
 	return (NULL);
 }
 
-static char get_conversion_char(char *format, int i)
+static char	get_conversion_char(char *format, int i)
 {
 	while (!is_conversion_char(format[i]))
 		++i;
 	return (format[i]);
 }
 
-int do_conversion(va_list *ap, char *format, int i)
+int			do_conversion(va_list *ap, char *format, int i)
 {
-	char conversion_char;
-	char *value;
-	int count;
+	char	conversion_char;
+	char	*value;
+	int		count;
 
 	value = NULL;
 	count = 0;
 	conversion_char = get_conversion_char(format, i);
 	value = get_arg_as_str(ap, conversion_char);
-	if (conversion_char == 'c' && ESCAPED_ZERO_CHAR_CONVERSION)
+	if (conversion_char == 'c' && value && !value[0])
 		++count;
 	manage_flags(&(format[i]), &value, conversion_char);
 	ft_putstr(value);

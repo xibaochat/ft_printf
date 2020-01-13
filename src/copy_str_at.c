@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   copy_str_at.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/28 18:22:14 by xinwang           #+#    #+#             */
+/*   Updated: 2019/12/04 03:40:34 by xinwang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libftprintf.h"
 
-void copy_at_the_end(char *value, char **new_value)
+void	copy_at_the_end(char *value, char **new_value)
 {
 	int i;
 	int j;
@@ -11,7 +23,7 @@ void copy_at_the_end(char *value, char **new_value)
 		(*new_value)[j--] = value[i--];
 }
 
-void copy_at_the_begining(char *value, char **new_value)
+void	copy_at_the_begining(char *value, char **new_value)
 {
 	int i;
 
@@ -20,7 +32,7 @@ void copy_at_the_begining(char *value, char **new_value)
 		(*new_value)[i] = value[i];
 }
 
-void ncopy_at_the_begining(unsigned int n, char *value, char **new_value)
+void	ncopy_at_the_begining(unsigned int n, char *value, char **new_value)
 {
 	int i;
 

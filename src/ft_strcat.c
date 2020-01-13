@@ -12,10 +12,10 @@
 
 #include "libftprintf.h"
 
-char    *ft_strcat(char *dest, char *src)
+char				*ft_strcat(char *dest, char *src)
 {
-	unsigned int    lens;
-	unsigned int    i;
+	unsigned int	lens;
+	unsigned int	i;
 
 	i = 0;
 	lens = ft_strlen(dest);

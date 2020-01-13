@@ -12,21 +12,22 @@
 
 #include "libftprintf.h"
 
-static int char_is_n(char c)
+static int	char_is_n(char c)
 {
 	return (c == 'x' || c == 'X' || c == 'd' || c == 'i' || c == 'u');
 }
 
-void manage_flags(char *format, char **value, char conversion_char)
+void		manage_flags(char *format, char **value, char conversion_char)
 {
-	t_flag my_flags;
-	int v_lens;
-	char *new_value;
+	t_flag	my_flags;
+	int		v_lens;
+	char	*new_value;
 
 	new_value = NULL;
 	v_lens = ft_strlen(*value);
 	my_flags = ft_initialize_attribution_flag(conversion_char, format);
-	if (!(my_flags.have_precision) && !(my_flags.f_max_width) && conversion_char != 'p')
+	if (!(my_flags.have_precision) \
+		&& !(my_flags.f_max_width) && conversion_char != 'p')
 		return ;
 	if (char_is_n(conversion_char))
 		new_value = ft_apply_flag_to_nb(my_flags, v_lens, *value);

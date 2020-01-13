@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int is_conversion_char(char c)
+int	is_conversion_char(char c)
 {
-    return (c == 'x' || c == 'X' || c == 'd' || c == 'i' || c == 'u' ||
-            c == 'p' || c == 's' || c == 'c');
+	return (c == 'x' || c == 'X' || c == 'd' || c == 'i' || c == 'u' ||
+			c == 'p' || c == 's' || c == 'c');
 }

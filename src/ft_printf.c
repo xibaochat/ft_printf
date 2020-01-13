@@ -12,14 +12,14 @@
 
 #include "libftprintf.h"
 
-static void simple_print(char c, int *nb_output, int *i)
+static void	simple_print(char c, int *nb_output, int *i)
 {
 	ft_putchar(c);
 	++(*nb_output);
 	++(*i);
 }
 
-int printf_core(va_list *ap, char *format)
+int			printf_core(va_list *ap, char *format)
 {
 	int i;
 	int nb_output;
@@ -47,10 +47,10 @@ int printf_core(va_list *ap, char *format)
 	return (nb_output);
 }
 
-int ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list	ap;
-	char *new_format;
+	char	*new_format;
 
 	if (!format)
 		return (0);

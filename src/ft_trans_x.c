@@ -27,7 +27,7 @@ static int			get_size(uintmax_t n)
 
 static char			*get_converted_str(char *str, uintmax_t res, int *i)
 {
-	char base[17] = "0123456789abcdef";
+	static char base[17] = "0123456789abcdef";
 
 	if (res >= 16)
 		get_converted_str(str, res / 16, i);

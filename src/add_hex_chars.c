@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-void add_hex_chars(char **value)
+void	add_hex_chars(char **value)
 {
 	char *new;
 

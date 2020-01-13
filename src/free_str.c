@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-void free_str(char **s)
+void	free_str(char **s)
 {
 	if (*s)
 	{

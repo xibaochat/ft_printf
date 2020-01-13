@@ -1,12 +1,21 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ptr_to_str.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/04 03:12:31 by xinwang           #+#    #+#             */
+/*   Updated: 2019/12/04 03:12:51 by xinwang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libftprintf.h"
 
-char	*ptr_to_str(void *ptr)
+char			*ptr_to_str(void *ptr)
 {
 	uintmax_t	p;
-	char *new;
+	char		*new;
 
 	p = (uintmax_t)ptr;
 	if (!p)
