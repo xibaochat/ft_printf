@@ -16,11 +16,14 @@ void	add_hex_chars(char **value)
 {
 	char *new;
 
-	new = ft_strnew_with_char(ft_strlen(*value) + 2, '_');
-	copy_at_the_end(*value, &new);
-	if (*value)
-		free(*value);
-	*value = new;
-	(*value)[0] = '0';
-	(*value)[1] = 'x';
+	if (ft_strcmp(*value, "(nil)"))
+	{
+		new = ft_strnew_with_char(ft_strlen(*value) + 2, '_');
+		copy_at_the_end(*value, &new);
+		if (*value)
+			free(*value);
+		*value = new;
+		(*value)[0] = '0';
+		(*value)[1] = 'x';
+	}
 }
