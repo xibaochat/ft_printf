@@ -78,6 +78,7 @@ int				is_digit(char c);
 int				invalid_percent_char(char *format, int i);
 int				skip_invalid_percent_chars(char *format, int *i);
 int				char_is_n(char c);
+void			init_my_flags(t_flag *my_flags);
 
 #endif
 
