@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 12:34:08 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/14 12:35:23 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/14 13:02:56 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int skip_invalid_percent_chars(char *format, int *i)
 
 static int is_invalid_char(char c)
 {
-	if (is_digit(c) || c == '-' || c == '.')
+	if (is_digit(c) || c == '-' || c == '.' || c == '*')
 		return (0);
 	return (1);
 }
