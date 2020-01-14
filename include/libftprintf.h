@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/14 13:42:27 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/14 14:36:47 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct	s_flag
 	int			f_max_width;
 	int			f_precision;
 	int			have_precision;
+	int			precision_from_zero; // To manage special case #00
 }				t_flag;
 
 int				ft_printf(const char *format, ...);
@@ -49,7 +50,7 @@ void			copy_at_the_begining(char *value, char **new_value);
 char			*ft_apply_unsigned_width(t_flag my_flags, char *value);
 char			*ft_apply_signed_width(t_flag my_flags, char *value);
 char			*ft_apply_signed_width_to_char(t_flag my_flags, char *value);
-char			*apply_precision(int v_precision, char *str);
+char			*apply_precision(t_flag my_flags, char *str);
 char			*ft_apply_flag_to_nb(t_flag my_flags, int v_lens, char *value);
 char			*ft_apply_flag_to_char(t_flag my_flags, char *value);
 char			*ft_apply_flag_to_str(t_flag my_flags, char *value, int v_lens);
@@ -79,3 +80,10 @@ int				skip_invalid_percent_chars(char *format, int *i);
 int				char_is_n(char c);
 
 #endif
+
+/*
+  SPECIAL CASES:
+
+  # 00: ".%07i.\n", -54
+
+*/
