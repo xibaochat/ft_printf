@@ -47,11 +47,17 @@ static int	ft_get_flag_value(t_flag *my_flags, char conversion_char, char *str, 
 
 static void	ft_init_sign(t_flag *my_flags, char *format, int *i)
 {
+	int mem;
+
+	mem = *i;
+	while (format[*i] && format[*i] == '0')
+		(*i)++;
 	while (format[*i] && format[*i] == '-')
 	{
 		(*my_flags).is_signed = 1;
 		(*i)++;
 	}
+	*i = mem;
 	if (*i == 0)
 		(*my_flags).is_signed = 0;
 }
