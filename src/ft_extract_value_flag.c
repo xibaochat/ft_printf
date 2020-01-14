@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 19:53:34 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/14 12:58:30 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/14 14:26:46 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ static int	ft_get_flag_value(t_flag *my_flags, char conversion_char, char *str, 
 		while (str[*i] && str[*i] == '0')
 			(*i)++;
 		if (char_is_n(conversion_char))
+		{
 			my_flags->have_precision = 1;
+			my_flags->precision_from_zero = 1;
+		}
 		if (!has_point(str, *i) || my_flags->have_precision)
 			return (0);
 	}
@@ -47,11 +50,18 @@ static int	ft_get_flag_value(t_flag *my_flags, char conversion_char, char *str, 
 
 static void	ft_init_sign(t_flag *my_flags, char *format, int *i)
 {
+	int mem;
+
+	mem = *i;
+	while (format[*i] && format[*i] == '0')
+		(*i)++;
 	while (format[*i] && format[*i] == '-')
 	{
 		(*my_flags).is_signed = 1;
 		(*i)++;
 	}
+	if (!(*my_flags).is_signed)
+		*i = mem;
 	if (*i == 0)
 		(*my_flags).is_signed = 0;
 }
@@ -86,6 +96,7 @@ t_flag		ft_initialize_attribution_flag(char conversion_char, char *format)
 	t_flag	my_flags;
 
 	i = 0;
+	my_flags.precision_from_zero = 0;
 	ft_init_sign(&my_flags, format, &i);
 	my_flags.f_max_width = ft_get_flag_value(&my_flags, conversion_char, format, &i);
 	ft_init_precision(&my_flags, format, &i);
