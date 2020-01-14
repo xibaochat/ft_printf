@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 16:03:30 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/14 12:35:28 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/14 13:19:58 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static int	has_nb_and_star(char *format, int *i)
 		(*i)++;
 		mark = 1;
 	}
+	while (format[*i] && format[*i] == '-')
+		(*i)++;
 	if (format[*i] == '*' && mark)
 		return (1);
 	return (0);
