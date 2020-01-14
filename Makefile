@@ -26,6 +26,9 @@ $(NAME):$(SRCO)
 	ar rcs $(NAME) $(SRCSO)
 	ranlib $(NAME)
 
+main: all
+	gcc src/main.c $(NAME) -I $(HEADER_DIR)
+
 clean:
 	rm -f $(SRCSO)
 
