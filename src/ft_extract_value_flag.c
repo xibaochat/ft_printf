@@ -70,7 +70,6 @@ static void	ft_init_precision(t_flag *my_flags, char *format, int *i)
 {
 	int have_precision;
 
-	have_precision = 0;
 	if (format[*i] == '.')
 	{
 		(*i)++;
@@ -78,7 +77,9 @@ static void	ft_init_precision(t_flag *my_flags, char *format, int *i)
 	}
 	while (format[*i] == '0')
 		(*i)++;
-	if (have_precision || (format[*i] >= '0' && format[*i] <= '9'))
+
+	if ((format[*i] != '-' && have_precision) ||
+		(format[*i] >= '0' && format[*i] <= '9'))
 	{
 		my_flags->f_precision = ft_get_flag_value(my_flags, '\0', format, i);
 		my_flags->have_precision = 1;
