@@ -14,7 +14,7 @@
 
 static int	has_point(char *str, int i)
 {
-	while (str[i])
+	while (str[i] && !is_conversion_char(str[i]))
 	{
 		if (str[i] == '.')
 			return (1);
