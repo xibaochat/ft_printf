@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 19:53:34 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/04 05:02:40 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/14 12:58:30 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ static void	ft_init_precision(t_flag *my_flags, char *format, int *i)
 		(*i)++;
 		++have_precision;
 	}
+	while (format[*i] == '0')
+		(*i)++;
 	if (have_precision || (format[*i] >= '0' && format[*i] <= '9'))
 	{
 		my_flags->f_precision = ft_get_flag_value('\0', format, i);
