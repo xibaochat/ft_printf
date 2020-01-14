@@ -70,6 +70,7 @@ static void	ft_init_precision(t_flag *my_flags, char *format, int *i)
 {
 	int have_precision;
 
+	have_precision = 0;
 	if (format[*i] == '.')
 	{
 		(*i)++;
