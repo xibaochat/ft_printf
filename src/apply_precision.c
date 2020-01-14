@@ -16,7 +16,7 @@ static char	*apply_precision_on_neg(int v_precision, char *str)
 {
 	char	*new_str;
 
-	new_str = ft_strnew_with_char(v_precision + 1, '0');
+	new_str = ft_strnew_with_char(v_precision, '0');
 	new_str[0] = '-';
 	if (new_str)
 	{

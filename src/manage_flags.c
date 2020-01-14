@@ -6,16 +6,11 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 18:06:32 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/03 22:54:19 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/14 13:41:47 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-static int	char_is_n(char c)
-{
-	return (c == 'x' || c == 'X' || c == 'd' || c == 'i' || c == 'u');
-}
 
 void		manage_flags(char *format, char **value, char conversion_char)
 {

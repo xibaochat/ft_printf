@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/13 19:29:04 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/14 13:42:27 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ void			ft_put_unsigned_nbr(unsigned int n);
 int				is_digit(char c);
 int				invalid_percent_char(char *format, int i);
 int				skip_invalid_percent_chars(char *format, int *i);
-
+int				char_is_n(char c);
 
 #endif
