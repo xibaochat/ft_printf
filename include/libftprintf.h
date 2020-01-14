@@ -73,5 +73,9 @@ int				is_conversion_char(char c);
 void			ft_putstr(char *s);
 void			ft_putnbr(int n);
 void			ft_put_unsigned_nbr(unsigned int n);
+int				is_digit(char c);
+int				invalid_percent_char(char *format, int i);
+int				skip_invalid_percent_chars(char *format, int *i);
+
 
 #endif

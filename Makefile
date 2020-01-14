@@ -4,7 +4,8 @@ SRCS_NAME = ft_printf.c ft_putchar.c is_conversion.c is_conversion_char.c \
 	nb_char_to_skip.c do_conversion.c ft_itoa.c char_to_str.c ft_strnew.c ft_trans_x.c \
 	ft_trans_capital_x.c ptr_to_str.c ft_strlen.c ft_putstr.c manage_flags.c apply_flags.c \
 	ft_extract_value_flag.c copy_str_at.c apply_precision.c ft_apply_width.c \
-	replace_star.c ft_strcat.c free_str.c ft_strcmp.c add_hex_chars.c has_invalide_char_in_flag.c
+	replace_star.c ft_strcat.c free_str.c ft_strcmp.c add_hex_chars.c has_invalide_char_in_flag.c \
+	is_digit.c invalid_percent_char.c
 
 SRCS_PATH = ./src/
 

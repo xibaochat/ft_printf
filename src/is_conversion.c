@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 16:03:30 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/04 04:38:35 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/14 12:35:28 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int			is_conversion(char *format, int *i)
 	if (format[j] != '%' || !format[j + 1])
 		return (0);
 	(*i)++;
-	if (format[j + 1] == '%')
-		return (0);
+	if (invalid_percent_char(format, *i))
+		return (skip_invalid_percent_chars(format, i));
 	return (1);
 }
