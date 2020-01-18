@@ -58,10 +58,6 @@ int			valide_star_nb_combi(char *format, int i)
 		i++;
 	if (nb_stars(format, &i) > 1)
 		return (0);
-	while (format[i] >= '0' && format[i] <= '9')
-		i++;
-	if (!is_conversion_char(format[i]))
-		return (0);
 	return (1);
 }
 

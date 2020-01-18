@@ -27,11 +27,18 @@ static int	ft_get_flag_value(char *str, int *i)
 
 static void	ft_init_sign(t_flag *my_flags, char *format, int *i)
 {
+	int mem;
+
+	mem = *i;
+	while (format[*i] && format[*i] == '0')
+		(*i)++;
 	while (format[*i] && format[*i] == '-')
 	{
 		(*my_flags).is_signed = 1;
 		(*i)++;
 	}
+	if (!(*my_flags).is_signed)
+		*i = mem;
 	if (*i == 0)
 		(*my_flags).is_signed = 0;
 }
