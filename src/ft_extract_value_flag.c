@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 19:53:34 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/18 09:33:57 by monster_maobe    ###   ########.fr       */
+/*   Updated: 2020/01/18 10:50:48 by monster_maobe    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,21 @@ int dot_in_conversion(char *format, int i)
 	return (0);
 }
 
+int not_zero_width(char *format, int i)
+{
+	while (format[++i] == '0')
+		;
+	if (format[i] > '0' && format[i] == '9')
+		return (1);
+	return (0);
+}
+
 int ft_get_width(t_flag *my_flags, char *format, int *i, char conversion_char)
 {
-	if (char_is_n(conversion_char) &&
+	if ((char_is_n(conversion_char) || conversion_char == 's') &&
 		!dot_in_conversion(format, *i) &&
-		format[*i] == '0')
+		format[*i] == '0' &&
+		not_zero_width(format, *i))
 	{
 		while (format[*i + 1] && format[*i + 1] == '0')
 			(*i)++;

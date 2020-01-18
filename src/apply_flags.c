@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 18:06:58 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/18 09:42:49 by monster_maobe    ###   ########.fr       */
+/*   Updated: 2020/01/18 10:56:50 by monster_maobe    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ char	*ft_apply_flag_to_str(t_flag my_flags, char *value, int v_lens)
 {
 	if (my_flags.have_precision && my_flags.f_precision < v_lens)
 		replace_str_by(&value, apply_precision_on_str(my_flags, value));
+	else if (my_flags.precision_from_zero)
+		replace_str_by(&value, apply_precision(&my_flags, value));
 	if ((unsigned int)my_flags.f_max_width > ft_strlen(value))
 	{
 		if (my_flags.is_signed)
