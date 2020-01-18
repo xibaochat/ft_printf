@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 18:06:58 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/05 12:59:32 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/18 09:42:49 by monster_maobe    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	replace_str_by(char **dest, char *src)
 char	*ft_apply_flag_to_adress(t_flag my_flags, char *value, int v_lens)
 {
 	if (my_flags.f_precision > v_lens)
-		replace_str_by(&value, apply_precision(my_flags.f_precision, value));
+		replace_str_by(&value, apply_precision(&my_flags, value));
 	add_hex_chars(&value);
 	if ((unsigned int)my_flags.f_max_width > ft_strlen(value))
 	{
@@ -36,7 +36,7 @@ char	*ft_apply_flag_to_adress(t_flag my_flags, char *value, int v_lens)
 char	*ft_apply_flag_to_nb(t_flag my_flags, int v_lens, char *value)
 {
 	if (my_flags.f_precision > v_lens)
-		replace_str_by(&value, apply_precision(my_flags.f_precision, value));
+		replace_str_by(&value, apply_precision(&my_flags, value));
 	else if (my_flags.have_precision &&
 			my_flags.f_precision == 0 &&
 			!ft_strcmp(value, "0"))

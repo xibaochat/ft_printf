@@ -6,33 +6,40 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 18:22:14 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/18 07:52:47 by monster_maobe    ###   ########.fr       */
+/*   Updated: 2020/01/18 09:43:11 by monster_maobe    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static char	*apply_precision_on_neg(int v_precision, char *str)
+static char	*apply_precision_on_neg(t_flag *my_flags, char *str)
 {
 	char	*new_str;
+	int from_zero;
+	int f_precision;
 
-	new_str = ft_strnew_with_char(v_precision + 1, '0');
-	new_str[0] = '-';
+	from_zero = my_flags->precision_from_zero;
+	f_precision = my_flags->f_precision;
+	if (from_zero)
+		new_str = ft_strnew_with_char(f_precision, '0');
+	else
+		new_str = ft_strnew_with_char(f_precision + 1, '0');
 	if (new_str)
 	{
+		new_str[0] = '-';
 		copy_at_the_end(str + 1, &new_str);
 		return (new_str);
 	}
 	return (NULL);
 }
 
-char		*apply_precision(int v_precision, char *str)
+char		*apply_precision(t_flag *my_flags, char *str)
 {
 	char	*new_str;
 
 	if (str && str[0] == '-')
-		return (apply_precision_on_neg(v_precision, str));
-	new_str = ft_strnew_with_char(v_precision, '0');
+		return (apply_precision_on_neg(my_flags, str));
+	new_str = ft_strnew_with_char(my_flags->f_precision, '0');
 	if (new_str)
 	{
 		copy_at_the_end(str, &new_str);
