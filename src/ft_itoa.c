@@ -6,7 +6,7 @@
 /*   By: xinwang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 11:49:03 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/13 19:29:16 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/18 07:39:11 by monster_maobe    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int					get_size_int(long int n)
 		size++;
 		n = n / 10;
 	}
-	return (size);
+	return (size + 1);
 }
 
 static char			*get_converted_str(char *str, long int res, int *i)

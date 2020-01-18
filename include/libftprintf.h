@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/13 19:29:04 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/18 08:32:46 by monster_maobe    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char			*ft_trans_to_x(uintmax_t n);
 char			*ft_trans_capital_x(uintmax_t n);
 char			*ptr_to_str(void *ptr);
 void			manage_flags(char *format, char **value, char conversion_char);
-t_flag			ft_initialize_attribution_flag(char c, char *format);
+t_flag			ft_initialize_attribution_flag(char *format);
 void			copy_at_the_end(char *value, char **new_value);
 void			copy_at_the_begining(char *value, char **new_value);
 char			*ft_apply_unsigned_width(t_flag my_flags, char *value);
