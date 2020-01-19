@@ -25,6 +25,8 @@ static int	has_nb_and_star(char *format, int *i)
 	mark = 0;
 	while (format[*i] && format[*i] == '-')
 		(*i)++;
+	while (format[*i] == '0')
+		(*i)++;
 	while (format[*i] >= '0' && format[*i] <= '9')
 	{
 		(*i)++;

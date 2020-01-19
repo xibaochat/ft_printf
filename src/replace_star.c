@@ -59,12 +59,50 @@ static void		skip_stars(char *format, int *k, int *j)
 	}
 }
 
+char * remove_current_start(char *format, int i)
+{
+	char *new_str;
+
+	new_str = ft_strnew(ft_strlen(format));
+	ft_strncat(new_str, format, i - 1);
+	ft_strncat(new_str, format + i + 1, ft_strlen(format) - i - 1);
+	free_str(&format);
+	return (new_str);
+}
+
+
+char			*manage_precision_star(va_list *ap, char *format, int i)
+{
+	char		*new_str;
+	char		*s_value;
+	int			value;
+
+	s_value = NULL;
+	value = va_arg(*ap, int);
+	if (value < 0)
+		return remove_current_start(format, i);
+	new_str = ft_strnew(ft_strlen(format) + get_size_int(value));
+	new_str = ft_strncat(new_str, format, i);
+
+	s_value = ft_itoa(value);
+
+	ft_strcat(new_str + i, s_value);
+	ft_strcat(new_str + (i + ft_strlen(s_value)), format + i + 1);
+
+	free_str(&s_value);
+	free_str(&format);
+	return (new_str);
+}
+
+
 char			*manage_star(va_list *ap, char *format, int i)
 {
 	int j;
 	int k;
 
 	j = 0;
+	if (format[i] == '.' && format[i + 1] && format[i + 1] == '*')
+		return manage_precision_star(ap, format, i);
 	while (format[i] && format[i] != '*')
 		i++;
 	if (format[i] == '*')
@@ -77,6 +115,6 @@ char			*manage_star(va_list *ap, char *format, int i)
 	while (format[i] && format[i] != '.')
 		i++;
 	if (format[i] == '.' && format[++i] == '*' && j < 2)
-		format = replace_star(ap, format, i);
+		format = manage_precision_star(ap, format, i);
 	return (format);
 }
