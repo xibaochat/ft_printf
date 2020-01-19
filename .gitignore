@@ -6,3 +6,8 @@ a.out*
 *.io
 *.o
 main.c
+ftprintfdestructor
+printf-tester
+#*
+\#*
+.\#*
