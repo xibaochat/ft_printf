@@ -20,8 +20,8 @@ char			*ptr_to_str(void *ptr)
 	p = (uintmax_t)ptr;
 	if (!p)
 	{
-		new = ft_strnew(6);
-		ft_strcat(new, "(nil)");
+		new = ft_strnew(2);
+		ft_strcat(new, "0");
 		return (new);
 	}
 	return (ft_trans_to_x(p));
