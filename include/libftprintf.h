@@ -75,5 +75,6 @@ void			ft_putstr(char *s);
 void			ft_putnbr(int n);
 void			ft_put_unsigned_nbr(unsigned int n);
 int char_is_n(char c);
+void tweak_flags_values(t_flag *my_flags, char *value, char conversion_char);
 
 #endif

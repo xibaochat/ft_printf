@@ -17,6 +17,15 @@ int	char_is_n(char c)
 	return (c == 'x' || c == 'X' || c == 'd' || c == 'i' || c == 'u');
 }
 
+static int no_flags_to_apply(t_flag my_flags, char conversion_char)
+{
+	return (!(my_flags.have_precision) &&
+			!(my_flags.f_max_width) &&
+			conversion_char != 'p');
+}
+
+
+
 void		manage_flags(char *format, char **value, char conversion_char)
 {
 	t_flag	my_flags;
@@ -26,8 +35,8 @@ void		manage_flags(char *format, char **value, char conversion_char)
 	new_value = NULL;
 	v_lens = ft_strlen(*value);
 	my_flags = ft_initialize_attribution_flag(conversion_char, format);
-	if (!(my_flags.have_precision) \
-		&& !(my_flags.f_max_width) && conversion_char != 'p')
+	tweak_flags_values(&my_flags, *value, conversion_char);
+	if (no_flags_to_apply(my_flags, conversion_char))
 		return ;
 	if (char_is_n(conversion_char))
 		new_value = ft_apply_flag_to_nb(my_flags, v_lens, *value);

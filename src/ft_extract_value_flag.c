@@ -101,18 +101,22 @@ int ft_get_width(t_flag *my_flags, char *format, int *i, char conversion_char)
 	return ft_get_flag_value(format, i);
 }
 
+void init_my_flags(t_flag *my_flags)
+{
+	my_flags->is_signed = 0;
+	my_flags->f_max_width = 0;
+	my_flags->f_precision = 0;
+	my_flags->have_precision = 0;
+	my_flags->precision_from_zero = 0;
+}
+
 t_flag		ft_initialize_attribution_flag(char conversion_char, char *format)
 {
 	int		i;
 	t_flag	my_flags;
 
 	i = 0;
-	my_flags.is_signed = 0;
-	my_flags.f_max_width = 0;
-	my_flags.f_precision = 0;
-	my_flags.have_precision = 0;
-	my_flags.precision_from_zero = 0;
-
+	init_my_flags(&my_flags);
 	ft_init_sign(&my_flags, format, &i);
 	my_flags.f_max_width = ft_get_width(&my_flags, format, &i, conversion_char);
 	ft_init_precision(&my_flags, format, &i);
