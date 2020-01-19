@@ -22,6 +22,8 @@ char	*ft_apply_flag_to_adress(t_flag my_flags, char *value, int v_lens)
 {
 	if (my_flags.f_precision > v_lens)
 		replace_str_by(&value, apply_precision(&my_flags, value));
+	else if (!(my_flags.f_precision))
+		replace_str_by(&value, ft_strnew(1));
 	add_hex_chars(&value);
 	if ((unsigned int)my_flags.f_max_width > ft_strlen(value))
 	{
