@@ -58,21 +58,50 @@ static char	get_conversion_char(char *format, int i)
 	return (format[i]);
 }
 
+void print_backslash_zero(char *s)
+{
+	int i;
+
+	i = -1;
+	while (s[++i])
+	{
+		if (s[i] == '_')
+			ft_putchar(0);
+		else
+			ft_putchar(s[i]);
+	}
+}
+
+int print_value(char **value, int is_backslash_zero)
+{
+	int		count;
+
+	count =	ft_strlen(*value);
+	if (is_backslash_zero)
+		print_backslash_zero(*value);
+	else
+		ft_putstr(*value);
+	free_str(value);
+	return (count);
+}
+
 int			do_conversion(va_list *ap, char *format, int i)
 {
 	char	conversion_char;
 	char	*value;
-	int		count;
+
+	int is_backslash_zero;
+
 
 	value = NULL;
-	count = 0;
+	is_backslash_zero = 0;
 	conversion_char = get_conversion_char(format, i);
 	value = get_arg_as_str(ap, conversion_char);
 	if (conversion_char == 'c' && value && !value[0])
-		++count;
+	{
+		++is_backslash_zero;
+		value[0] = '_';
+	}
 	manage_flags(&(format[i]), &value, conversion_char);
-	ft_putstr(value);
-	count += ft_strlen(value);
-	free_str(&value);
-	return (count);
+	return (print_value(&value, is_backslash_zero));
 }
