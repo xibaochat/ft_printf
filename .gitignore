@@ -1,0 +1,8 @@
+*~
+42TESTERS-PRINTF
+*.a
+pft_2019
+a.out*
+*.io
+*.o
+main.c
