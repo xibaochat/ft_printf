@@ -48,13 +48,17 @@ static char	*get_arg_as_str(va_list *ap, char c)
 		return (ft_trans_capital_x((va_arg(*ap, unsigned int))));
 	else if (c == 'p')
 		return (ptr_to_str(va_arg(*ap, void *)));
+	else if (c == '_')
+		return (ft_strnew_with_char(1, '%'));
 	return (NULL);
 }
 
 static char	get_conversion_char(char *format, int i)
 {
-	while (!is_conversion_char(format[i]))
+	while (!is_conversion_char(format[i]) && format[i] != '%')
 		++i;
+	if (format[i] == '%')
+		return ('_');
 	return (format[i]);
 }
 

@@ -24,7 +24,10 @@ static int no_flags_to_apply(t_flag my_flags, char conversion_char)
 			conversion_char != 'p');
 }
 
-
+int no_conversion_char(char c)
+{
+	return (c == '_');
+}
 
 void		manage_flags(char *format, char **value, char conversion_char)
 {
@@ -38,7 +41,7 @@ void		manage_flags(char *format, char **value, char conversion_char)
 	tweak_flags_values(&my_flags, *value, conversion_char);
 	if (no_flags_to_apply(my_flags, conversion_char))
 		return ;
-	if (char_is_n(conversion_char))
+	if (char_is_n(conversion_char) || no_conversion_char(conversion_char))
 		new_value = ft_apply_flag_to_nb(my_flags, v_lens, *value);
 	else if (conversion_char == 'c')
 		new_value = ft_apply_flag_to_char(my_flags, *value);

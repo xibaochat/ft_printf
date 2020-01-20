@@ -14,7 +14,7 @@
 
 void	skip_conversion_chars(char *format, int *i)
 {
-	while (!is_conversion_char(format[*i]))
+	while (!is_conversion_char(format[*i]) && format[*i] != '%')
 		++(*i);
 	++(*i);
 }

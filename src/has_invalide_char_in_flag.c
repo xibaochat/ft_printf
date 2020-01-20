@@ -14,8 +14,13 @@
 
 int	has_invalide_char_in_flag(char *format, int i)
 {
+	int init;
+
+	init = i;
 	while (format[i] && !is_conversion_char(format[i]))
 	{
+		if (format[i] == '%' && i != init)
+			return (0);
 		if (!is_allowed_char_in_flag(format[i]))
 			return (1);
 		i++;

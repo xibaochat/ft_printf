@@ -92,9 +92,16 @@ int not_zero_width(char *format, int i)
 	return (0);
 }
 
+int valid_precision_from_zero_cchar(char c)
+{
+	if (char_is_n(c) || c == 's' || c == '_')
+		return (1);
+	return (0);
+}
+
 int ft_get_width(t_flag *my_flags, char *format, int *i, char conversion_char)
 {
-	if ((char_is_n(conversion_char) || conversion_char == 's') &&
+	if (valid_precision_from_zero_cchar(conversion_char) &&
 		!dot_in_conversion(format, *i) &&
 		format[*i] == '0' && !(my_flags->is_signed) &&
 		not_zero_width(format, *i))
