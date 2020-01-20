@@ -89,9 +89,7 @@ int			do_conversion(va_list *ap, char *format, int i)
 {
 	char	conversion_char;
 	char	*value;
-
 	int is_backslash_zero;
-
 
 	value = NULL;
 	is_backslash_zero = 0;

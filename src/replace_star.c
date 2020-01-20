@@ -110,13 +110,12 @@ char			*manage_star(va_list *ap, char *format, int i)
 	j = 0;
 	if (precision_star(format, i))
 		return manage_precision_star(ap, format, i);
-	while (format[i] && format[i] != '*')
+	while (format[i] && format[i] != '*' && !is_conversion_char(format[i]))
 		i++;
-	if (format[i] == '*')
-	{
-		format = replace_star(ap, format, i);
-		skip_signed_digit(format, &i);
-	}
+	if (!format[i] || is_conversion_char(format[i]))
+		return (format);
+	format = replace_star(ap, format, i);
+	skip_signed_digit(format, &i);
 	k = i;
 	skip_stars(format, &k, &j);
 	while (format[i] && format[i] != '.')
