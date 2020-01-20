@@ -37,6 +37,8 @@ char	*ft_apply_flag_to_adress(t_flag my_flags, char *value, int v_lens)
 
 char	*ft_apply_flag_to_nb(t_flag my_flags, int v_lens, char *value)
 {
+	if (value[0] == '-')
+		--v_lens;
 	if (my_flags.f_precision > v_lens)
 		replace_str_by(&value, apply_precision(&my_flags, value));
 	else if (my_flags.have_precision &&
