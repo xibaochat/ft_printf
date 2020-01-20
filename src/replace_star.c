@@ -118,7 +118,7 @@ char			*manage_star(va_list *ap, char *format, int i)
 	skip_signed_digit(format, &i);
 	k = i;
 	skip_stars(format, &k, &j);
-	while (format[i] && format[i] != '.')
+	while (format[i] && format[i] != '.' && !is_conversion_char(format[i]))
 		i++;
 	if (precision_star(format, i) && j < 2)
 		format = manage_precision_star(ap, format, i);
