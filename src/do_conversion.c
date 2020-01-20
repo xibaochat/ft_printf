@@ -55,7 +55,7 @@ static char	*get_arg_as_str(va_list *ap, char c)
 
 static char	get_conversion_char(char *format, int i)
 {
-	while (!is_conversion_char(format[i]) && format[i] != '%')
+	while (format[i] && !is_conversion_char(format[i]) && format[i] != '%')
 		++i;
 	if (format[i] == '%')
 		return ('_');

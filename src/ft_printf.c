@@ -37,7 +37,7 @@ int			printf_core(va_list *ap, char *format)
 				nb_output += do_conversion(ap, format, i);
 				skip_conversion_chars(format, &i);
 			}
-			else if (format[i + 1] && format[i + 1] == '%')
+			else if (format[i] && format[i + 1] && format[i + 1] == '%')
 				simple_print(format[i], &nb_output, &i);
 			else
 				++i;
