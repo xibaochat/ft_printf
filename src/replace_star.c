@@ -88,13 +88,13 @@ int precision_star(char *format, int i)
 
 char			*manage_star(va_list *ap, char *format, int i)
 {
-	if (precision_star(format, i))
-		return manage_precision_star(ap, format, i);
-	while (format[i] && format[i] != '*' && !is_conversion_char(format[i]))
+	while (format[i] && format[i] != '*' &&
+		   !is_conversion_char(format[i]) && format[i] != '.')
 		i++;
 	if (!format[i] || is_conversion_char(format[i]))
 		return (format);
-	format = replace_star(ap, format, i);
+	if (format[i] != '.')
+		format = replace_star(ap, format, i);
 	while (format[i] && format[i] != '.' && !is_conversion_char(format[i]))
 		i++;
 	if (precision_star(format, i))
