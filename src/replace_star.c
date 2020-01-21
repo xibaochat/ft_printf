@@ -43,22 +43,6 @@ char			*replace_star(va_list *ap, char *format, int i)
 	return (new_str);
 }
 
-static void		skip_signed_digit(char *format, int *i)
-{
-	while (format[*i] && (format[*i] == '-'
-	|| (format[*i] >= '0' && format[*i] <= '9')))
-		++(*i);
-}
-
-static void		skip_stars(char *format, int *k, int *j)
-{
-	while (format[*k] && format[*k] == '*')
-	{
-		(*j)++;
-		(*k)++;
-	}
-}
-
 char * remove_current_start(char *format, int i)
 {
 	char *new_str;
@@ -82,7 +66,7 @@ char			*manage_precision_star(va_list *ap, char *format, int i)
 	if (value < 0)
 		return remove_current_start(format, i);
 	i++;
-	new_str = ft_strnew(ft_strlen(format) + get_size_int(value) + 1);
+	new_str = ft_strnew(ft_strlen(format) + get_size_int(value));
 	new_str = ft_strncat(new_str, format, i);
 
 	s_value = ft_itoa(value);
@@ -104,10 +88,6 @@ int precision_star(char *format, int i)
 
 char			*manage_star(va_list *ap, char *format, int i)
 {
-	int j;
-	int k;
-
-	j = 0;
 	if (precision_star(format, i))
 		return manage_precision_star(ap, format, i);
 	while (format[i] && format[i] != '*' && !is_conversion_char(format[i]))
@@ -115,12 +95,9 @@ char			*manage_star(va_list *ap, char *format, int i)
 	if (!format[i] || is_conversion_char(format[i]))
 		return (format);
 	format = replace_star(ap, format, i);
-	skip_signed_digit(format, &i);
-	k = i;
-	skip_stars(format, &k, &j);
 	while (format[i] && format[i] != '.' && !is_conversion_char(format[i]))
 		i++;
-	if (precision_star(format, i) && j < 2)
+	if (precision_star(format, i))
 		format = manage_precision_star(ap, format, i);
 	return (format);
 }
