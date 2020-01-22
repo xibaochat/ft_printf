@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 01:04:48 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/18 09:39:26 by monster_maobe    ###   ########.fr       */
+/*   Updated: 2020/01/23 00:23:47 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include <stdint.h>
 # include <stdarg.h>
-# include <stdio.h>
 
 typedef struct	s_flag
 {
@@ -74,7 +73,14 @@ int				is_conversion_char(char c);
 void			ft_putstr(char *s);
 void			ft_putnbr(int n);
 void			ft_put_unsigned_nbr(unsigned int n);
-int char_is_n(char c);
-void tweak_flags_values(t_flag *my_flags, char *value, char conversion_char);
+int				char_is_n(char c);
+void			tweak_flags_values(t_flag *my_flags, char *value, char conversion_char);
+void			print_backslash_zero(char *s);
+int				print_value(char **value, int is_backslash_zero);
+void		    ft_init_precision(t_flag *my_flags, char *format, int *i);
+void    		ft_init_sign(t_flag *my_flags, char *format, int *i);
+int				dot_in_conversion(char *format, int i);
+void		    ft_init_sign(t_flag *my_flags, char *format, int *i);
+int				ft_get_flag_value(char *str, int *i);
 
 #endif

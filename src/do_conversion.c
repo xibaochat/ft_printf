@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 17:36:57 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/04 05:01:53 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/22 23:51:58 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,33 +60,6 @@ static char	get_conversion_char(char *format, int i)
 	if (format[i] == '%')
 		return ('_');
 	return (format[i]);
-}
-
-void print_backslash_zero(char *s)
-{
-	int i;
-
-	i = -1;
-	while (s[++i])
-	{
-		if (s[i] == '_')
-			ft_putchar(0);
-		else
-			ft_putchar(s[i]);
-	}
-}
-
-int print_value(char **value, int is_backslash_zero)
-{
-	int		count;
-
-	count =	ft_strlen(*value);
-	if (is_backslash_zero)
-		print_backslash_zero(*value);
-	else
-		ft_putstr(*value);
-	free_str(value);
-	return (count);
 }
 
 int			do_conversion(va_list *ap, char *format, int i)
