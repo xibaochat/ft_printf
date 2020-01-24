@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 18:22:14 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/18 10:58:16 by monster_maobe    ###   ########.fr       */
+/*   Updated: 2020/01/23 01:26:34 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char		*apply_precision(t_flag *my_flags, char *str)
 
 char		*apply_precision_on_str(t_flag my_flags, char *value)
 {
-	char *new_value;
+	char	*new_value;
 
 	new_value = ft_strnew_with_char(my_flags.f_precision, ' ');
 	ncopy_at_the_begining(my_flags.f_precision, value, &new_value);

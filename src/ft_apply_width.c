@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 18:23:29 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/03 22:02:29 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/23 01:29:11 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_apply_unsigned_width(t_flag my_flags, char *value)
 {
-	char *new_value;
+	char	*new_value;
 
 	new_value = ft_strnew_with_char(my_flags.f_max_width, ' ');
 	if (new_value)
@@ -34,7 +34,7 @@ char	*ft_apply_signed_width_to_char(t_flag my_flags, char *value)
 
 char	*ft_apply_signed_width(t_flag my_flags, char *value)
 {
-	char *new_value;
+	char	*new_value;
 
 	new_value = ft_strnew_with_char(my_flags.f_max_width, ' ');
 	if (new_value)

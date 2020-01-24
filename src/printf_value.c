@@ -6,13 +6,13 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 23:51:34 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/22 23:53:13 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/23 01:21:43 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void print_backslash_zero(char *s)
+void	print_backslash_zero(char *s)
 {
 	int i;
 
@@ -26,7 +26,7 @@ void print_backslash_zero(char *s)
 	}
 }
 
-int print_value(char **value, int is_backslash_zero)
+int		print_value(char **value, int is_backslash_zero)
 {
 	int     count;
 

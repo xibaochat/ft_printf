@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 00:05:03 by xinwang           #+#    #+#             */
-/*   Updated: 2019/11/19 00:13:06 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/23 01:33:04 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr(int n)
 {
-	unsigned int nb;
+	unsigned int	nb;
 
 	if (n < 0)
 	{

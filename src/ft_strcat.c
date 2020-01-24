@@ -6,13 +6,13 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 17:08:51 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 17:08:51 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/23 01:33:49 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char				*ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, char *src)
 {
 	unsigned int	lens;
 	unsigned int	i;

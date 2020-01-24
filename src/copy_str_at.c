@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 18:22:14 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/04 03:40:34 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/23 01:27:38 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	copy_at_the_end(char *value, char **new_value)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = ft_strlen(value) - 1;
 	j = ft_strlen(*new_value) - 1;
@@ -25,7 +25,7 @@ void	copy_at_the_end(char *value, char **new_value)
 
 void	copy_at_the_begining(char *value, char **new_value)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (value && value[++i])

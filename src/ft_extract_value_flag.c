@@ -6,19 +6,19 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 19:53:34 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/23 00:22:52 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/23 01:30:30 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void skip_zeroes_and_minus(char *s, int *i)
+void	skip_zeroes_and_minus(char *s, int *i)
 {
 	while (s[*i] && (s[*i] == '-' || s[*i] == '0'))
 		++(*i);
 }
 
-int	ft_get_flag_value(char *str, int *i)
+int		ft_get_flag_value(char *str, int *i)
 {
 	int	s;
 
@@ -34,7 +34,7 @@ int	ft_get_flag_value(char *str, int *i)
 
 void	ft_init_sign(t_flag *my_flags, char *format, int *i)
 {
-	int mem;
+	int	mem;
 
 	mem = *i;
 	while (format[*i] && format[*i] == '0')
@@ -50,7 +50,7 @@ void	ft_init_sign(t_flag *my_flags, char *format, int *i)
 
 void	ft_init_precision(t_flag *my_flags, char *format, int *i)
 {
-	int have_precision;
+	int	have_precision;
 
 	have_precision = 0;
 	if (format[*i] == '.')
@@ -70,7 +70,7 @@ void	ft_init_precision(t_flag *my_flags, char *format, int *i)
 	}
 }
 
-int dot_in_conversion(char *format, int i)
+int		dot_in_conversion(char *format, int i)
 {
 	while (!is_conversion_char(format[i]))
 	{

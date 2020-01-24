@@ -6,13 +6,13 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 23:58:27 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/22 23:59:48 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/23 01:31:14 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int not_zero_width(char *format, int i)
+int		not_zero_width(char *format, int i)
 {
 	while (format[++i] == '0')
 		;
@@ -21,14 +21,14 @@ int not_zero_width(char *format, int i)
 	return (0);
 }
 
-int valid_precision_from_zero_cchar(char c)
+int		valid_precision_from_zero_cchar(char c)
 {
 	if (char_is_n(c) || c == 's' || c == '_')
 		return (1);
 	return (0);
 }
 
-int ft_get_width(t_flag *my_flags, char *format, int *i, char conversion_char)
+int		ft_get_width(t_flag *my_flags, char *format, int *i, char conversion_char)
 {
 	if (valid_precision_from_zero_cchar(conversion_char) &&
 		!dot_in_conversion(format, *i) &&
@@ -44,7 +44,7 @@ int ft_get_width(t_flag *my_flags, char *format, int *i, char conversion_char)
 	return ft_get_flag_value(format, i);
 }
 
-void init_my_flags(t_flag *my_flags)
+void	init_my_flags(t_flag *my_flags)
 {
 	my_flags->is_signed = 0;
 	my_flags->f_max_width = 0;
@@ -53,7 +53,7 @@ void init_my_flags(t_flag *my_flags)
 	my_flags->precision_from_zero = 0;
 }
 
-t_flag      ft_initialize_attribution_flag(char conversion_char, char *format)
+t_flag	ft_initialize_attribution_flag(char conversion_char, char *format)
 {
 	int     i;
 	t_flag  my_flags;

@@ -6,13 +6,13 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 19:21:21 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/04 03:41:31 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/23 01:34:04 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (s1[i] == s2[i])

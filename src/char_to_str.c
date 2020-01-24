@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 17:49:22 by xinwang           #+#    #+#             */
-/*   Updated: 2019/12/01 18:11:10 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/01/23 01:26:54 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*char_to_str(char c)
 {
-	char *s;
+	char	*s;
 
 	s = ft_strnew_with_char(2, '\0');
 	s[0] = c;

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_hex_chars.c                                    :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/04 03:12:31 by xinwang           #+#    #+#             */
-/*   Updated: 2020/01/23 01:23:30 by xinwang          ###   ########.fr       */
+/*   Created: 2020/01/23 01:19:21 by xinwang           #+#    #+#             */
+/*   Updated: 2020/01/23 01:34:25 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	add_hex_chars(char **value)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	char	*new;
+    unsigned int	lens;
+    unsigned int    i;
 
-	new = ft_strnew_with_char(ft_strlen(*value) + 2, '_');
-	copy_at_the_end(*value, &new);
-	if (*value)
-		free(*value);
-	*value = new;
-	(*value)[0] = '0';
-	(*value)[1] = 'x';
+    i = 0;
+    lens = ft_strlen(dest);
+    while (src[i] && i < nb)
+        dest[lens++] = src[i++];
+    dest[lens] = '\0';
+    return (dest);
 }
